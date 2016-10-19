@@ -8,11 +8,11 @@ import com.xiaoguang.xtaobao.base.BaseView;
  * Created by 11655 on 2016/10/18.
  */
 
-public class IBaseContract {
-   public interface IBaseView extends BaseView<IBasePrensenter>{
+public class IFragPersonalContract {
+   public interface IFragPersonalView extends BaseView<IFragPersonalPrensenter>{
 
     }
-    public interface IBasePrensenter extends BasePresenter<IBaseView>{
+    public interface IFragPersonalPrensenter extends BasePresenter<IFragPersonalView>{
 
     }
 }

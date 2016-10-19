@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+   <!--背景颜色-->
+    <color name="colorBackground">#eeeeee</color>
+    <!--顶部颜色-->
+    <color name="colorTop">#ff5000</color>
+    <!--底部颜色 -->
+    <color name="colorBottom">#f6f2f0</color>
+    <!--分割线的颜色-->
+    <color name="colorLine">#e8e8e8</color>
+    <!--底部(未选中)图标颜色-->
+    <color name="colorUnSelectedIcon">#5f646e</color>
+    <!--底部(选中)图标颜色-->
+    <color name="colorSelectedIcon">#ff5000</color>
+    <!--顶部图片颜色-->
+    <color name="colorTopIcon">#ffffff</color>
+    <!--顶部搜索框内的颜色-->
+    <color name="colorTopSearch">#d42d00</color>
+    <!--中间按钮颜色-->
+    <color name="colorCenterBtn">#ffbe2a</color>
+    <!--顶部被选中的颜色-->
+    <color name="colorTopSelected">#ffb100</color>
+    <!--提示的背景颜色-->
+    <color name="colorTipBackground">#676c75</color>
+    <!--字体颜色-->
+    <color name="colorFont">#5f646e</color>
+    <!--透明的颜色-->
+    <color name="colorTransparency">#0000</color>
+    <!--顶部搜索框内的字体颜色-->
+    <color name="colorTopFont">#d42d00</color>
+    <color name="colorAskTopBackgroud">#00BCD4</color>
+</resources>

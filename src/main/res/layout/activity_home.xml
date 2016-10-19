@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_home"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.xiaoguang.xtaobao.activity.HomeActivity">
-</RelativeLayout>
+    android:background="@color/colorBackground"
+    android:orientation="vertical">
+    <!--内容区域-->
+    <com.xiaoguang.xtaobao.widget.NotSlipViewPager
+        android:id="@+id/act_home_vp_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorLine"></View>
+    <!--底部区域-->
+    <include layout="@layout/activity_home_bottom" />
+</LinearLayout>

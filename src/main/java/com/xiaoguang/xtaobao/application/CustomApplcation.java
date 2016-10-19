@@ -2,6 +2,7 @@ package com.xiaoguang.xtaobao.application;
 
 import android.app.Activity;
 import android.app.Application;
+import android.content.Context;
 
 import com.xiaoguang.xtaobao.bean.User;
 import com.xiaoguang.xtaobao.util.ActivityManagerUtils;
@@ -20,6 +21,11 @@ public class CustomApplcation extends Application {
     public static String TAG;
     //当前的用户
     private static User currentUser;
+
+    /**
+     * 维护一个全局的context对象
+     */
+    public Context context;
     //用于存放数据
     private Map datas = new HashMap();
     private static CustomApplcation customApplcation = null;
@@ -59,6 +65,7 @@ public class CustomApplcation extends Application {
         TAG = this.getClass().getSimpleName();
         //由于Application类本身已经单例，所以直接按以下处理即可。
         customApplcation = this;
+        context = getApplicationContext();
     }
 
     public void addActivity(Activity ac) {

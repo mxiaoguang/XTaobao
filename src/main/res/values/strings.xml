@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">XTaobao</string>
+    <string name="act_home_top_scan">扫一扫</string>
+    <string name="act_home_top_msg">消息</string>
+    <string name="act_home_bottom_shouye">首页</string>
+    <string name="act_home_bottom_we">微淘</string>
+    <string name="act_home_bottom_ask">问大家</string>
+    <string name="act_home_bottom_shop_car">购物车</string>
+    <string name="act_home_bottom_my">我的淘宝</string>
+    <string name="frag_we_search">搜索</string>
+</resources>

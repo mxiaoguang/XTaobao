@@ -1,0 +1,12 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <!--操作图标的宽度-->
+    <dimen name="action_bar_width">48dp</dimen>
+    <!--操作图标的高度-->
+    <dimen name="action_bar_height">48dp</dimen>
+    <!--菜单bar-->
+    <dimen name="bottom_bar_height">48dp</dimen>
+    <dimen name="act_top_font">12sp</dimen>
+</resources>

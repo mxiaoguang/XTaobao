@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:orientation="vertical">
+    <!--顶部区域-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorBackground"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/frag_we_search"
+            android:id="@+id/frag_we_iv_search" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="微淘"
+            android:textColor="@color/colorFont"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/frag_we_iv_peron"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/frag_we_person" />
+
+        <ImageView
+            android:id="@+id/frag_we_iv_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/frag_we_msg" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorLine"/>
+    <!--导航栏开始-->
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/colorBottom"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/frag_we_btn_news"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorTransparency"
+            android:drawableTop="@drawable/selector_frag_we_btn_news"
+            android:gravity="center"
+            android:text="动态"
+            android:textColor="@drawable/selector_act_home_btn_text_color" />
+
+        <Button
+            android:id="@+id/frag_home_btn_good_new"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorTransparency"
+            android:drawableTop="@drawable/selector_frag_we_btn_new"
+            android:gravity="center"
+            android:text="上新"
+            android:textColor="@drawable/selector_act_home_btn_text_color" />
+
+        <Button
+            android:id="@+id/frag_we_btn_video"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorTransparency"
+            android:drawableTop="@drawable/selector_frag_we_btn_video"
+            android:gravity="center"
+            android:text="视频"
+            android:textColor="@drawable/selector_act_home_btn_text_color" />
+
+        <Button
+            android:id="@+id/frag_we_btn_hot_title"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorTransparency"
+            android:clickable="true"
+            android:drawableTop="@drawable/selector_frag_we_btn_hot_title"
+            android:text="@string/act_home_bottom_shop_car"
+            android:textColor="@drawable/selector_act_home_btn_text_color" />
+
+        <Button
+            android:id="@+id/frag_we_btn_medial"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorTransparency"
+            android:drawableTop="@drawable/selector_frag_we_btn_hot"
+            android:gravity="center"
+            android:text="话题榜"
+            android:textColor="@drawable/selector_act_home_btn_text_color" />
+    </LinearLayout>
+    <!--导航栏结束-->
+    <!--内容区域-->
+    <android.support.v4.view.ViewPager
+        android:id="@+id/frag_we_vp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

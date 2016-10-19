@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:orientation="vertical">
+    <!--顶部区域-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorBackground"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/frag_ask_iv_head"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="5dp"
+            android:src="@drawable/default_head" />
+
+        <EditText
+            android:id="@+id/frag_ask_ed_search"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#DCDAD3"
+            android:drawableLeft="@drawable/act_home_search"
+            android:hint="购物相关经验，在这里都能搜索的到"
+            android:textColor="@color/colorFont"
+            android:textColorHint="@color/colorFont"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:id="@+id/frag_ask_iv_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/frag_we_msg" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorLine" />
+    <!--导航栏开始-->
+    <HorizontalScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@color/colorAskTopBackgroud"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/frag_ask_btn_hot"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:background="@color/colorTransparency"
+                android:drawableTop="@drawable/selector_frag_ask_btn_hot"
+                android:gravity="center"
+                android:text="热门"
+                android:textColor="@drawable/selector_frag_ask_btn_text_color" />
+
+            <Button
+                android:id="@+id/frag_ask_btn_clothes"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:background="@color/colorTransparency"
+                android:drawableTop="@drawable/selector_frag_ask_btn_clothes"
+                android:gravity="center"
+                android:text="穿搭"
+                android:textColor="@drawable/selector_frag_ask_btn_text_color" />
+
+            <Button
+                android:id="@+id/frag_ask_btn_buy"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:background="@color/colorTransparency"
+                android:drawableTop="@drawable/selector_frag_ask_btn_haitao"
+                android:gravity="center"
+                android:text="海淘"
+                android:textColor="@drawable/selector_frag_ask_btn_text_color" />
+
+            <Button
+                android:id="@+id/frag_ask_btn_child"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:background="@color/colorTransparency"
+                android:clickable="true"
+                android:drawableTop="@drawable/selector_frag_ask_btn_child"
+                android:text="育儿"
+                android:textColor="@drawable/selector_frag_ask_btn_text_color" />
+
+            <Button
+                android:id="@+id/frag_ask_btn_fix"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:background="@color/colorTransparency"
+                android:drawableTop="@drawable/selector_frag_ask_btn_zhuangxiu"
+                android:gravity="center"
+                android:text="装修"
+                android:textColor="@drawable/selector_frag_ask_btn_text_color" />
+
+            <Button
+                android:id="@+id/frag_ask_btn_beautiful"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:background="@color/colorTransparency"
+                android:drawableTop="@drawable/selector_frag_ask_btn_beautif"
+                android:gravity="center"
+                android:text="美妆"
+                android:textColor="@drawable/selector_frag_ask_btn_text_color" />
+
+            <Button
+                android:id="@+id/frag_ask_btn_media"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:background="@color/colorTransparency"
+                android:drawableTop="@drawable/selector_frag_ask_btn_media"
+                android:gravity="center"
+                android:text="数码"
+                android:textColor="@drawable/selector_frag_ask_btn_text_color" />
+
+            <Button
+                android:id="@+id/frag_ask_btn_heathy"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:background="@color/colorTransparency"
+                android:drawableTop="@drawable/selector_frag_ask_btn_heathy"
+                android:gravity="center"
+                android:text="健身"
+                android:textColor="@drawable/selector_frag_ask_btn_text_color" />
+        </LinearLayout>
+    </HorizontalScrollView>
+    <!--导航栏结束-->
+    <!--内容区域-->
+    <android.support.v4.view.ViewPager
+        android:id="@+id/frag_ask_vp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

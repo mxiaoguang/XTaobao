@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?><!--我的淘宝页面-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:orientation="vertical">
+    <!--上部分-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorBackground"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/frag_we_iv_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/frag_we_search" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="我的淘宝"
+            android:textColor="@color/colorFont"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/frag_we_iv_peron"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/frag_we_person" />
+
+        <ImageView
+            android:id="@+id/frag_we_iv_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/frag_we_msg" />
+    </LinearLayout>
+    <!--顶部区域结束-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#FF7A45"></LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBottom">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="我的订单"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="查看全部订单"
+            android:textColor="#C6C3BF"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorLine" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/colorBottom"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/act_home_btn_home"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorTransparency"
+            android:drawableTop="@drawable/selector_act_home_btn_home"
+            android:gravity="center"
+            android:text="@string/act_home_bottom_shouye"
+            android:textColor="@drawable/selector_act_home_btn_text_color" />
+
+        <Button
+            android:id="@+id/act_home_btn_we"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorTransparency"
+            android:drawableTop="@drawable/selector_act_home_btn_we"
+            android:gravity="center"
+            android:text="@string/act_home_bottom_we"
+            android:textColor="@drawable/selector_act_home_btn_text_color" />
+
+        <Button
+            android:id="@+id/act_home_btn_ask"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorTransparency"
+            android:drawableTop="@drawable/selector_act_home_btn_ask"
+            android:gravity="center"
+            android:text="@string/act_home_bottom_ask"
+            android:textColor="@drawable/selector_act_home_btn_text_color" />
+
+        <Button
+            android:id="@+id/act_home_btn_shopcar"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorTransparency"
+            android:clickable="true"
+            android:drawableTop="@drawable/selector_act_home_btn_shop_car"
+            android:text="@string/act_home_bottom_shop_car"
+            android:textColor="@drawable/selector_act_home_btn_text_color" />
+
+        <Button
+            android:id="@+id/act_home_btn_my"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorTransparency"
+            android:drawableTop="@drawable/selector_act_home_btn_my"
+            android:gravity="center"
+            android:text="@string/act_home_bottom_my"
+            android:textColor="@drawable/selector_act_home_btn_text_color" />
+    </LinearLayout>
+    <!--下部分控件-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBottom">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="必备工具"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="兼职赚钱点这里"
+            android:textColor="#C6C3BF"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorLine" />
+    <!--中间部分控件-->
+    <GridView
+        android:id="@+id/frag_personal_gv_center"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#82FF78"
+        android:numColumns="4"></GridView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="我的互动"
+        android:textColor="#0A0B0B"
+        android:textSize="20sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorLine" />
+    <!--底部部分控件-->
+    <GridView
+        android:id="@+id/frag_personal_gv_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#FFF965"
+        android:numColumns="4"></GridView>
+</LinearLayout>

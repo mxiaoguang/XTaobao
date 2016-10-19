@@ -8,11 +8,11 @@ import com.xiaoguang.xtaobao.base.BaseView;
  * Created by 11655 on 2016/10/18.
  */
 
-public class IBaseContract {
-   public interface IBaseView extends BaseView<IBasePrensenter>{
+public class IRegisterContract {
+   public interface IIRegisterView extends BaseView<IIRegisterPrensenter>{
 
     }
-    public interface IBasePrensenter extends BasePresenter<IBaseView>{
+    public interface IIRegisterPrensenter extends BasePresenter<IIRegisterView>{
 
     }
 }
