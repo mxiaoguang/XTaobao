@@ -1,5 +1,6 @@
 package com.xiaoguang.xtaobao.activity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
@@ -69,6 +70,7 @@ public class HomeActivity extends BaseActivity implements IHomeContract.IHomeVie
             case R.id.act_home_btn_ask://中间问大家按钮,存在两次的点击判断
                 mActHomeVpContent.setCurrentItem(2);
                 mActHomeBtnAsk.setText("发布");
+                mActHomeBtnAsk.setBackgroundColor(Color.parseColor("#ffbe2a"));
                 break;
             case R.id.act_home_btn_shopcar:
                 changBtnSelectedStatus(2);

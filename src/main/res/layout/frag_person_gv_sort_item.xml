@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="70dp"
+    android:layout_height="70dp"
+    android:background="@drawable/selector_frag_person_gv_item"
+    android:gravity="center">
+    <ImageView
+        android:id="@+id/grid_view_iv"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/frag_home_sort_tianmao"/>
+    <TextView
+        android:id="@+id/grid_view_tv"
+        android:layout_width="60dp"
+        android:layout_height="20dp"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:textColor="@color/colorFont"
+        android:layout_marginBottom="10dp"
+        android:text="我的快递"/>
+</LinearLayout>

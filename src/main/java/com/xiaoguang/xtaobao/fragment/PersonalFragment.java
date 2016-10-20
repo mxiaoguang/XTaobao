@@ -1,15 +1,30 @@
 package com.xiaoguang.xtaobao.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
 import com.xiaoguang.xtaobao.R;
+import com.xiaoguang.xtaobao.activity.LoginActivity;
+import com.xiaoguang.xtaobao.application.CustomApplcation;
 import com.xiaoguang.xtaobao.base.BaseFragment;
+import com.xiaoguang.xtaobao.config.Contracts;
 import com.xiaoguang.xtaobao.contract.IFragPersonalContract;
 import com.xiaoguang.xtaobao.presenter.FragPersonalPresenterImpl;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * 我的淘宝
@@ -17,20 +32,129 @@ import com.xiaoguang.xtaobao.presenter.FragPersonalPresenterImpl;
  */
 
 public class PersonalFragment extends BaseFragment implements IFragPersonalContract.IFragPersonalView {
+
+    //获取控件
+    @BindView(R.id.frag_personal_tv_setting)
+    TextView mFragPersonalTvetting;
+    ImageView mFragPersonalIvPeron;
+    @BindView(R.id.frag_personal_iv_msg)
+    ImageView mFragPersonalIvMsg;
+    @BindView(R.id.frag_personal_iv_head)
+    CircleImageView mFragPersonalIvHead;
+    @BindView(R.id.frag_personal_tv_nick_name)
+    TextView mFragPersonalTvNickName;
+    @BindView(R.id.frag_personal_rl_show_dingdan)
+    RelativeLayout mFragPersonalRlShowDingdan;
+    @BindView(R.id.frag_personal_btn_pay)
+    Button mFragPersonalBtnPay;
+    @BindView(R.id.frag_personal_btn_daifahuo)
+    Button mFragPersonalBtnDaifahuo;
+    @BindView(R.id.frag_personal_btn_daishouhuo)
+    Button mFragPersonalBtnDaishouhuo;
+    @BindView(R.id.frag_home_personal_daipingjia)
+    Button mFragHomePersonalDaipingjia;
+    @BindView(R.id.frag_personal_btn_tuikuan)
+    Button mFragPersonalBtnTuikuan;
+    @BindView(R.id.frag_personal_rl_show_jianzhi)
+    RelativeLayout mFragPersonalRlShowJianzhi;
+    @BindView(R.id.frag_personal_gv_center)
+    GridView mFragPersonalGvCenter;
+    @BindView(R.id.frag_personal_gv_bottom)
+    GridView mFragPersonalGvBottom;
     private IFragPersonalContract.IFragPersonalPrensenter presenter;
+    /**
+     * 标志位，标志已经初始化完成
+     */
+    private boolean isPrepared;
+
+    @Override
+    protected void lazyLoad() {
+        if (!isPrepared || !isVisible) {
+            return;
+        }
+        if (!isLogin()) {
+            startActivityForResult(new Intent(getContext(), LoginActivity.class), 500);
+        } else {//设置数据
+            setUserData();
+
+        }
+    }
 
     @Override
     public View initLayout(LayoutInflater inflater, ViewGroup container, boolean b) {
-        return inflater.inflate(R.layout.frag_personal,null);
+        View rootView = inflater.inflate(R.layout.frag_personal, null);
+        ButterKnife.bind(this, rootView);
+        isPrepared = true;
+        lazyLoad();
+        return rootView;
     }
 
     @Override
     protected void initData(@Nullable Bundle savedInstanceState) {
         new FragPersonalPresenterImpl(this);
+        presenter.intData();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 500 && resultCode == 200) {
+            setUserData();
+        }
     }
 
     @Override
     public void setPresenter(IFragPersonalContract.IFragPersonalPrensenter presenter) {
         this.presenter = presenter;
+    }
+
+    //点击事件
+    @OnClick({R.id.frag_personal_tv_setting, R.id.frag_personal_iv_msg, R.id.frag_personal_rl_show_dingdan, R.id.frag_personal_btn_pay, R.id.frag_personal_btn_daifahuo, R.id.frag_personal_btn_daishouhuo, R.id.frag_home_personal_daipingjia, R.id.frag_personal_btn_tuikuan, R.id.frag_personal_rl_show_jianzhi})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.frag_personal_tv_setting:
+                break;
+            case R.id.frag_personal_iv_msg:
+                break;
+            case R.id.frag_personal_rl_show_dingdan:
+                break;
+            case R.id.frag_personal_btn_pay:
+                break;
+            case R.id.frag_personal_btn_daifahuo:
+                break;
+            case R.id.frag_personal_btn_daishouhuo:
+                break;
+            case R.id.frag_home_personal_daipingjia:
+                break;
+            case R.id.frag_personal_btn_tuikuan:
+                break;
+            case R.id.frag_personal_rl_show_jianzhi:
+                break;
+        }
+    }
+
+    @Override
+    public GridView getmFragPersonalGvBottom() {
+        return mFragPersonalGvBottom;
+    }
+
+    @Override
+    public GridView getmFragPersonalGvCenter() {
+        return mFragPersonalGvCenter;
+    }
+
+    /**
+     * 设置与用户相关的数据
+     */
+    private void setUserData() {
+        mFragPersonalTvNickName.setText(CustomApplcation.getInstance().getCurrentUser().getNickName());
+        String url = "";
+        if (CustomApplcation.getInstance().getCurrentUser().getUserHead().getUrl() == null) {//如果头像为空,则加载默认头像
+            url = Contracts.DEFALT_HEAD_URL;
+        } else {
+            url = CustomApplcation.getInstance().getCurrentUser().getUserHead().getUrl();
+        }
+        //设置头像
+        Picasso.with(getContext()).load(url).into(mFragPersonalIvHead);
     }
 }

@@ -38,7 +38,14 @@ public class HomeFragment extends BaseFragment implements IFragHomeContract.IFra
     LinearLayout linearLayoutTop;
     @BindView(R.id.frag_home_marqueeView)
     MarqueeView marqueeViewTop;
+    @BindView(R.id.frag_home_gv_content)
+    GridView gridViewContent;
     private IFragHomeContract.IFragHomePrensenter prenseter;
+
+    @Override
+    protected void lazyLoad() {
+
+    }
 
     @Override
     public View initLayout(LayoutInflater inflater, ViewGroup container, boolean b) {
@@ -60,6 +67,11 @@ public class HomeFragment extends BaseFragment implements IFragHomeContract.IFra
     @Override
     public GridView getGridViewSort() {
         return gridViewSort;
+    }
+
+    @Override
+    public GridView getGridViewContent() {
+        return gridViewContent;
     }
 
     @Override

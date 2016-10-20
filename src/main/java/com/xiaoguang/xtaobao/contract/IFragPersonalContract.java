@@ -1,5 +1,7 @@
 package com.xiaoguang.xtaobao.contract;
 
+import android.widget.GridView;
+
 import com.xiaoguang.xtaobao.base.BasePresenter;
 import com.xiaoguang.xtaobao.base.BaseView;
 
@@ -11,7 +13,10 @@ import com.xiaoguang.xtaobao.base.BaseView;
 public class IFragPersonalContract {
    public interface IFragPersonalView extends BaseView<IFragPersonalPrensenter>{
 
-    }
+       GridView getmFragPersonalGvBottom();
+
+       GridView getmFragPersonalGvCenter();
+   }
     public interface IFragPersonalPrensenter extends BasePresenter<IFragPersonalView>{
 
     }

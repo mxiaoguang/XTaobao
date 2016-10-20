@@ -6,6 +6,7 @@ import android.support.v4.view.ViewPager;
 import com.xiaoguang.xtaobao.adapter.ActHomePagerAdapter;
 import com.xiaoguang.xtaobao.contract.IFragAskContract;
 import com.xiaoguang.xtaobao.fragment.NewsFragment;
+import com.xiaoguang.xtaobao.util.LogUtils;
 
 import java.util.ArrayList;
 
@@ -26,6 +27,7 @@ public class FragAskPresenterImpl implements IFragAskContract.IFragAskPrensenter
 
     @Override
     public void intData() {
+        LogUtils.i("myTag","frag ask 执行了");
         fragments = new ArrayList<>();
         /*进行数据测试 8个种类*/
         fragments.add(new NewsFragment());

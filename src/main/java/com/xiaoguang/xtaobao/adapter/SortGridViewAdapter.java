@@ -14,16 +14,19 @@ import com.xiaoguang.xtaobao.R;
  * Created by 11655 on 2016/10/19.
  */
 
-public class GridViewAdapter extends BaseAdapter {
+public class SortGridViewAdapter extends BaseAdapter {
     //图片资源id
     private Integer[] sortImgs;
     //文字资源
     private String[] sortStrs;
+    //布局文件
+    private int resourse;
     //布局填充器
     LayoutInflater inflater;
-    public GridViewAdapter(Context context, Integer[] sortImgs, String[] sortStrs) {
+    public SortGridViewAdapter(Context context, Integer[] sortImgs, String[] sortStrs,int resourse) {
         this.sortImgs = sortImgs;
         this.sortStrs = sortStrs;
+        this.resourse = resourse;
         inflater = LayoutInflater.from(context);
     }
 
@@ -46,7 +49,7 @@ public class GridViewAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder vh;
         if (convertView==null){
-            convertView = inflater.inflate(R.layout.frag_home_grid_view_item,null);
+            convertView = inflater.inflate(resourse,null);
             vh = new ViewHolder();
             vh.imageView = ((ImageView) convertView.findViewById(R.id.grid_view_iv));
             vh.textView = ((TextView) convertView.findViewById(R.id.grid_view_tv));

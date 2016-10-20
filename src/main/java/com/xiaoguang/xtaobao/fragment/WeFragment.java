@@ -51,6 +51,11 @@ public class WeFragment extends BaseFragment implements IFragWeContract.IFragWeV
     private int btnID[];
 
     @Override
+    protected void lazyLoad() {
+
+    }
+
+    @Override
     public View initLayout(LayoutInflater inflater, ViewGroup container, boolean b) {
         View rootView = inflater.inflate(R.layout.frag_we, null);
         ButterKnife.bind(this, rootView);

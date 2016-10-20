@@ -1,61 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground">
+    android:background="@color/colorBackground"
+    android:orientation="vertical">
     <!--顶部区域-->
     <include layout="@layout/frag_home_top"></include>
+
     <!--广告栏区域-->
-    <com.jude.rollviewpager.RollPagerView
-        android:id="@+id/frag_home_roll_vp_ad"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="125dp"
-        app:rollviewpager_play_delay="3000"/>
-    <!--内容区域-->
-    <GridView
-        android:id="@+id/frag_home_gv_sort"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:numColumns="5"></GridView>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/colorLine"/>
-    <!--资讯头条开始-->
-    <LinearLayout
-        android:id="@+id/frag_home_ln_top"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        >
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:src="@drawable/frag_home_toutiao"
-            />
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="@color/colorLine"/>
-        <com.sunfusheng.marqueeview.MarqueeView
-            android:id="@+id/frag_home_marqueeView"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            app:mvGravity="center"
-            app:mvAnimDuration="1000"
-            app:mvInterval="3000"
-            app:mvTextColor="@color/colorFont"
-            app:mvTextSize="14sp"
-            />
-    </LinearLayout>
-    <!--资讯头条结束-->
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/colorLine"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.jude.rollviewpager.RollPagerView
+                android:id="@+id/frag_home_roll_vp_ad"
+                android:layout_width="match_parent"
+                android:layout_height="125dp"
+                app:rollviewpager_play_delay="3000" />
+            <!--内容区域-->
+            <!--不可滑动的GridView-->
+            <com.xiaoguang.xtaobao.widget.SourcePanel
+                android:id="@+id/frag_home_gv_sort"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:numColumns="5" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorLine" />
+            <!--资讯头条开始-->
+            <LinearLayout
+                android:id="@+id/frag_home_ln_top"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/frag_home_toutiao" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorLine" />
+
+                <com.sunfusheng.marqueeview.MarqueeView
+                    android:id="@+id/frag_home_marqueeView"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    app:mvAnimDuration="1000"
+                    app:mvGravity="center"
+                    app:mvInterval="3000"
+                    app:mvTextColor="@color/colorFont"
+                    app:mvTextSize="14sp" />
+            </LinearLayout>
+            <!--资讯头条结束-->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorLine" />
+            <!--不可滑动的GridView-->
+            <com.xiaoguang.xtaobao.widget.SourcePanel
+                android:id="@+id/frag_home_gv_content"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginTop="20dp"
+                android:layout_weight="1"
+                android:numColumns="2" />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

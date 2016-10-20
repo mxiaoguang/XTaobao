@@ -16,6 +16,7 @@ public class FragShopCarPresenterImpl implements IFragShopCarContract.IFragShopC
 
     @Override
     public void intData() {
+        //判断用户是否登陆
 
     }
 }

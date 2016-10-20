@@ -61,6 +61,11 @@ public class AskFragment extends BaseFragment implements IFragAskContract.IFragA
     private IFragAskContract.IFragAskPrensenter presenter;
 
     @Override
+    protected void lazyLoad() {
+
+    }
+
+    @Override
     public View initLayout(LayoutInflater inflater, ViewGroup container, boolean b) {
         View rootView = inflater.inflate(R.layout.frag_ask, null);
         ButterKnife.bind(this, rootView);

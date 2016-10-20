@@ -1,14 +1,17 @@
 package com.xiaoguang.xtaobao.application;
 
-import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 
 import com.xiaoguang.xtaobao.bean.User;
-import com.xiaoguang.xtaobao.util.ActivityManagerUtils;
+import com.xiaoguang.xtaobao.config.Contracts;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import c.b.BP;
+import cn.bmob.sms.BmobSMS;
+import cn.bmob.v3.Bmob;
 
 /**
  * 自定义的全部的Applcation类
@@ -59,6 +62,7 @@ public class CustomApplcation extends Application {
         return null;
     }
 
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -66,17 +70,12 @@ public class CustomApplcation extends Application {
         //由于Application类本身已经单例，所以直接按以下处理即可。
         customApplcation = this;
         context = getApplicationContext();
-    }
-
-    public void addActivity(Activity ac) {
-        ActivityManagerUtils.getInstance().addActivity(ac);
-    }
-
-    public void exit() {
-        ActivityManagerUtils.getInstance().removeAllActivity();
-    }
-
-    public Activity getTopActivity() {
-        return ActivityManagerUtils.getInstance().getTopActivity();
+        context = getApplicationContext();
+        //初始化BMob 短信服务SDK
+        BmobSMS.initialize(context, Contracts.BMOB_APP_KEY);
+        //初始化BMob 数据SDK
+        Bmob.initialize(this,Contracts.BMOB_APP_KEY);
+        //初始化Bmob 支付SDK
+        BP.init(context,Contracts.BMOB_APP_KEY);
     }
 }

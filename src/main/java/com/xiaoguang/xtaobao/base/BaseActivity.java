@@ -25,6 +25,8 @@ public class BaseActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         //固定屏幕方向
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        //设置在activity启动的时候输入法默认是不开启的
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
     }
 
     /**

@@ -16,6 +16,11 @@ import com.xiaoguang.xtaobao.base.BaseFragment;
 
 public class NewsFragment extends BaseFragment {
     @Override
+    protected void lazyLoad() {
+
+    }
+
+    @Override
     public View initLayout(LayoutInflater inflater, ViewGroup container, boolean b) {
         return inflater.inflate(R.layout.frag_home,null);
     }

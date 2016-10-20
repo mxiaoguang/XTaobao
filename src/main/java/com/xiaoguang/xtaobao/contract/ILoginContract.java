@@ -1,7 +1,6 @@
 package com.xiaoguang.xtaobao.contract;
 
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.xiaoguang.xtaobao.base.BasePresenter;
 import com.xiaoguang.xtaobao.base.BaseView;
@@ -11,20 +10,11 @@ import com.xiaoguang.xtaobao.base.BaseView;
  * Created by 11655 on 2016/10/18.
  */
 
-public class IRegisterContract {
-   public interface IIRegisterView extends BaseView<IIRegisterPrensenter>{
+public class ILoginContract {
+   public interface ILoginView extends BaseView<ILoginPrensenter>{
+       EditText getmActLoginEtPwd();
 
        EditText getmActHomeEtPhone();
-
-       EditText getmActHomeEtSmsCode();
-
-       EditText getmActHomeEtNickName();
-
-       EditText getmActRegEtPwd();
-
-       EditText getmActRegEtPwd2();
-
-       TextView getmFragRegisterTvGetcode();
 
        /**
         * Toast数据
@@ -49,16 +39,11 @@ public class IRegisterContract {
         * activity的跳转
         */
        void jumpActivity();
-   }
-    public interface IIRegisterPrensenter extends BasePresenter<IIRegisterView>{
+    }
+    public interface ILoginPrensenter extends BasePresenter<ILoginView>{
         /**
-         * 获取验证码
+         * 登陆操作
          */
-        void getCode();
-
-        /**
-         * 注册账号
-         */
-        void register();
+        void login();
     }
 }

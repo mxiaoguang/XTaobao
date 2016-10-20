@@ -12,12 +12,14 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/frag_we_iv_search"
+        <TextView
+            android:id="@+id/frag_personal_tv_setting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:src="@drawable/frag_we_search" />
+            android:clickable="true"
+            android:text="设置"
+            android:textColor="@color/colorFont" />
 
         <TextView
             android:layout_width="0dp"
@@ -29,15 +31,7 @@
             android:textSize="16sp" />
 
         <ImageView
-            android:id="@+id/frag_we_iv_peron"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:src="@drawable/frag_we_person" />
-
-        <ImageView
-            android:id="@+id/frag_we_iv_msg"
+            android:id="@+id/frag_personal_iv_msg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
@@ -45,156 +39,206 @@
             android:src="@drawable/frag_we_msg" />
     </LinearLayout>
     <!--顶部区域结束-->
-
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="#FF7A45"></LinearLayout>
+        android:layout_height="wrap_content">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorBottom">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="我的订单"
-            android:textColor="#000000"
-            android:textSize="20sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:text="查看全部订单"
-            android:textColor="#C6C3BF"
-            android:textSize="20sp" />
-    </RelativeLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/colorLine" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:background="@color/colorBottom"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/act_home_btn_home"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="5dp"
-            android:layout_weight="1"
-            android:background="@color/colorTransparency"
-            android:drawableTop="@drawable/selector_act_home_btn_home"
-            android:gravity="center"
-            android:text="@string/act_home_bottom_shouye"
-            android:textColor="@drawable/selector_act_home_btn_text_color" />
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/act_home_btn_we"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginTop="5dp"
-            android:layout_weight="1"
-            android:background="@color/colorTransparency"
-            android:drawableTop="@drawable/selector_act_home_btn_we"
-            android:gravity="center"
-            android:text="@string/act_home_bottom_we"
-            android:textColor="@drawable/selector_act_home_btn_text_color" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:background="@drawable/frag_personal_topbg"
+                android:gravity="center"
+                android:orientation="vertical">
+                <!--头像显示-->
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/frag_personal_iv_head"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/default_head" />
 
-        <Button
-            android:id="@+id/act_home_btn_ask"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginTop="5dp"
-            android:layout_weight="1"
-            android:background="@color/colorTransparency"
-            android:drawableTop="@drawable/selector_act_home_btn_ask"
-            android:gravity="center"
-            android:text="@string/act_home_bottom_ask"
-            android:textColor="@drawable/selector_act_home_btn_text_color" />
+                <TextView
+                    android:id="@+id/frag_personal_tv_nick_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="筱广King"
+                    android:textColor="#ffffff" />
+            </LinearLayout>
 
-        <Button
-            android:id="@+id/act_home_btn_shopcar"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginTop="5dp"
-            android:layout_weight="1"
-            android:background="@color/colorTransparency"
-            android:clickable="true"
-            android:drawableTop="@drawable/selector_act_home_btn_shop_car"
-            android:text="@string/act_home_bottom_shop_car"
-            android:textColor="@drawable/selector_act_home_btn_text_color" />
+            <RelativeLayout
+                android:id="@+id/frag_personal_rl_show_dingdan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
 
-        <Button
-            android:id="@+id/act_home_btn_my"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginTop="5dp"
-            android:layout_weight="1"
-            android:background="@color/colorTransparency"
-            android:drawableTop="@drawable/selector_act_home_btn_my"
-            android:gravity="center"
-            android:text="@string/act_home_bottom_my"
-            android:textColor="@drawable/selector_act_home_btn_text_color" />
-    </LinearLayout>
-    <!--下部分控件-->
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorBottom">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="我的订单"
+                    android:textColor="#bf000000"
+                    android:textSize="15sp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="必备工具"
-            android:textColor="#000000"
-            android:textSize="20sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:drawableRight="@drawable/frag_home_right"
+                    android:text="查看全部订单"
+                    android:textColor="#C6C3BF"
+                    android:textSize="15sp" />
+            </RelativeLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:text="兼职赚钱点这里"
-            android:textColor="#C6C3BF"
-            android:textSize="20sp" />
-    </RelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorLine" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/colorLine" />
-    <!--中间部分控件-->
-    <GridView
-        android:id="@+id/frag_personal_gv_center"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="#82FF78"
-        android:numColumns="4"></GridView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="我的互动"
-        android:textColor="#0A0B0B"
-        android:textSize="20sp" />
+                android:orientation="horizontal">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/colorLine" />
-    <!--底部部分控件-->
-    <GridView
-        android:id="@+id/frag_personal_gv_bottom"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="#FFF965"
-        android:numColumns="4"></GridView>
+                <Button
+                    android:id="@+id/frag_personal_btn_pay"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorTransparency"
+                    android:drawableTop="@drawable/frag_my_pay"
+                    android:gravity="center"
+                    android:text="待付款"
+                    android:textColor="@drawable/selector_act_home_btn_text_color" />
+
+                <Button
+                    android:id="@+id/frag_personal_btn_daifahuo"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorTransparency"
+                    android:drawableTop="@drawable/frag_my_fahuo"
+                    android:gravity="center"
+                    android:text="待发货"
+                    android:textColor="@drawable/selector_act_home_btn_text_color" />
+
+                <Button
+                    android:id="@+id/frag_personal_btn_daishouhuo"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorTransparency"
+                    android:drawableTop="@drawable/frag_my_shouhuo"
+                    android:gravity="center"
+                    android:text="待收货"
+                    android:textColor="@drawable/selector_act_home_btn_text_color" />
+
+                <Button
+                    android:id="@+id/frag_home_personal_daipingjia"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorTransparency"
+                    android:clickable="true"
+                    android:drawableTop="@drawable/frag_my_pingjia"
+                    android:text="待评价"
+                    android:textColor="@drawable/selector_act_home_btn_text_color" />
+
+                <Button
+                    android:id="@+id/frag_personal_btn_tuikuan"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorTransparency"
+                    android:drawableTop="@drawable/frag_my_tuikuan"
+                    android:gravity="center"
+                    android:text="退款/售后"
+                    android:textColor="@drawable/selector_act_home_btn_text_color" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorLine" />
+            <!--下部分控件-->
+            <RelativeLayout
+                android:id="@+id/frag_personal_rl_show_jianzhi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="必备工具"
+                    android:textColor="#bf000000"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:drawableRight="@drawable/frag_home_right"
+                    android:text="兼职赚钱点这里"
+                    android:textColor="#C6C3BF"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorLine" />
+            <!--中间部分控件-->
+            <com.xiaoguang.xtaobao.widget.SourcePanel
+                android:id="@+id/frag_personal_gv_center"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:horizontalSpacing="0.0dip"
+                android:listSelector="@null"
+                android:numColumns="4"
+                android:scrollbars="none"
+                android:stretchMode="columnWidth"></com.xiaoguang.xtaobao.widget.SourcePanel>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorLine" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_marginTop="20dp"
+                android:text="我的互动"
+                android:textColor="#bf000000"
+                android:textSize="15sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorLine" />
+            <!--底部部分控件-->
+            <com.xiaoguang.xtaobao.widget.SourcePanel
+                android:id="@+id/frag_personal_gv_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:horizontalSpacing="0.0dip"
+                android:listSelector="@null"
+                android:numColumns="4"
+                android:scrollbars="none"
+                android:stretchMode="columnWidth"
+                android:verticalSpacing="0.0dip"></com.xiaoguang.xtaobao.widget.SourcePanel>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

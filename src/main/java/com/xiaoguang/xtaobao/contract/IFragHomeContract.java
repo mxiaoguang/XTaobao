@@ -22,6 +22,8 @@ public class IFragHomeContract {
 
        GridView getGridViewSort();
 
+       GridView getGridViewContent();
+
        MarqueeView getMarqueeViewTop();
    }
     public interface IFragHomePrensenter extends BasePresenter<IFragHomeView>{

@@ -10,15 +10,18 @@ import android.widget.Toast;
 
  *
 
- * @author adison
-
- *
 
  */
 public class ToastFactory {
     private static Context context = null;
     private static Toast toast = null;
 
+    /**
+     * Toast.short().show方法
+     * @param context
+     * @param text
+     * @return
+     */
     public static Toast getToast(Context context, String text) {
         if (ToastFactory.context == context) {
             // toast.cancel();

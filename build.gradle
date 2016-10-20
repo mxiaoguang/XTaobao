@@ -28,6 +28,8 @@ dependencies {
     compile 'com.android.support:appcompat-v7:24.2.1'
     testCompile 'junit:junit:4.12'
     compile 'com.github.bumptech.glide:glide:3.7.0'
+    //支持库
+    compile 'com.android.support:design:24.2.1'
     /*使用注解插件*/
     compile 'com.jakewharton:butterknife:8.4.0'
     apt 'com.jakewharton:butterknife-compiler:8.4.0'
@@ -37,4 +39,14 @@ dependencies {
     compile 'de.hdodenhof:circleimageview:2.1.0'
     //垂直翻页公告
     compile 'com.sunfusheng:marqueeview:1.1.0'
+    //Bmob数据服务
+    compile 'cn.bmob.android:bmob-sdk:3.5.0'
+    //bmob-sms ：Bmob单独为短信服务提供的包
+    compile 'cn.bmob.android:bmob-sms:1.0.1'
+    //兼容安卓6.0
+    compile 'cn.bmob.android:http-legacy:1.0'
+    //图片加载框架
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    //Bmob支付服务
+    compile files('libs/bmobpay.jar')
 }
