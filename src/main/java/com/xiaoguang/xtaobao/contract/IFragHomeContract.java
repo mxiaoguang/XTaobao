@@ -13,7 +13,7 @@ import com.xiaoguang.xtaobao.base.BaseView;
  */
 
 public class IFragHomeContract {
-   public interface IFragHomeView extends BaseView<IFragHomePrensenter>{
+   public interface IFragHomeView extends BaseView<IFragHomePresenter>{
        /**
         * 获取显示广告的ViewPager
         * @return viewpager 对象
@@ -26,7 +26,7 @@ public class IFragHomeContract {
 
        MarqueeView getMarqueeViewTop();
    }
-    public interface IFragHomePrensenter extends BasePresenter<IFragHomeView>{
+    public interface IFragHomePresenter extends BasePresenter<IFragHomeView>{
 
     }
 }

@@ -18,7 +18,7 @@ import java.util.List;
  * Created by 11655 on 2016/10/19.
  */
 
-public class FragHomePresenterImpl implements IFragHomeContract.IFragHomePrensenter {
+public class FragHomePresenterImpl implements IFragHomeContract.IFragHomePresenter {
     //存放轮播图片Id
     private ArrayList<Integer> imgs;
     //存放中间小控件的id
@@ -42,7 +42,7 @@ public class FragHomePresenterImpl implements IFragHomeContract.IFragHomePrensen
     }
 
     @Override
-    public void intData() {
+    public void initData() {
         //获取显示广告的RollPagerView对象
         RollPagerView rollPagerViewAd = view.getmActHomeVpAd();
         //获取中间显示各个小控件的GridView

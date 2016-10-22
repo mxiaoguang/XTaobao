@@ -8,11 +8,14 @@ import com.xiaoguang.xtaobao.base.BaseView;
  * Created by 11655 on 2016/10/18.
  */
 
-public class IFragShopCarContract {
-   public interface IFragShopCarView extends BaseView<IFragShopCarPresenter>{
+public class ISettingContract {
+   public interface ISettingView extends BaseView<ISettingPresenter>{
 
     }
-    public interface IFragShopCarPresenter extends BasePresenter<IFragShopCarView>{
-
+    public interface ISettingPresenter extends BasePresenter<ISettingView>{
+        /**
+         * 退出登录
+         */
+        void logingOut();
     }
 }

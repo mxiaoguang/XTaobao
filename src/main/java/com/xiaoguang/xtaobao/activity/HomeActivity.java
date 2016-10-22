@@ -36,7 +36,7 @@ public class HomeActivity extends BaseActivity implements IHomeContract.IHomeVie
     private Button btns[];
     private int btnID[];
     //声明一个Presenter 对象，用于相关逻辑的处理
-    private IHomeContract.IHomePrensenter presenter;
+    private IHomeContract.IHomePresenter presenter;
     //定义FragmentManager对象
     private FragmentManager manager;
 
@@ -53,7 +53,7 @@ public class HomeActivity extends BaseActivity implements IHomeContract.IHomeVie
         //默认第一个按钮被选中
         mActHomeBtnHome.setEnabled(false);
         //进行数据的初始化操作
-        presenter.intData();
+        presenter.initData();
     }
     @OnClick({R.id.act_home_btn_home,
             R.id.act_home_btn_we, R.id.act_home_btn_ask, R.id.act_home_btn_shopcar, R.id.act_home_btn_my})
@@ -83,7 +83,7 @@ public class HomeActivity extends BaseActivity implements IHomeContract.IHomeVie
         }
     }
     @Override
-    public void setPresenter(IHomeContract.IHomePrensenter presenter) {
+    public void setPresenter(IHomeContract.IHomePresenter presenter) {
         this.presenter  = presenter;
     }
 

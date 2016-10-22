@@ -40,7 +40,7 @@ public class HomeFragment extends BaseFragment implements IFragHomeContract.IFra
     MarqueeView marqueeViewTop;
     @BindView(R.id.frag_home_gv_content)
     GridView gridViewContent;
-    private IFragHomeContract.IFragHomePrensenter prenseter;
+    private IFragHomeContract.IFragHomePresenter prenseter;
 
     @Override
     protected void lazyLoad() {
@@ -57,7 +57,7 @@ public class HomeFragment extends BaseFragment implements IFragHomeContract.IFra
     @Override
     protected void initData(@Nullable Bundle savedInstanceState) {
         new FragHomePresenterImpl(this);
-        prenseter.intData();
+        prenseter.initData();
     }
     @Override
     public RollPagerView getmActHomeVpAd() {
@@ -80,7 +80,7 @@ public class HomeFragment extends BaseFragment implements IFragHomeContract.IFra
     }
 
     @Override
-    public void setPresenter(IFragHomeContract.IFragHomePrensenter presenter) {
+    public void setPresenter(IFragHomeContract.IFragHomePresenter presenter) {
         this.prenseter = presenter;
     }
 

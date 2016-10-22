@@ -12,7 +12,7 @@ import com.xiaoguang.xtaobao.base.BaseView;
  */
 
 public class IHomeContract {
-    public interface IHomeView extends BaseView<IHomePrensenter>{
+    public interface IHomeView extends BaseView<IHomePresenter>{
 
         /**
          * 获取显示内容的Viewpager
@@ -26,7 +26,7 @@ public class IHomeContract {
          */
         FragmentManager getManager();
     }
-    public interface IHomePrensenter extends BasePresenter<IHomeView>{
+    public interface IHomePresenter extends BasePresenter<IHomeView>{
 
     }
 }

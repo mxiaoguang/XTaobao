@@ -14,7 +14,7 @@ import java.util.List;
  * Created by 11655 on 2016/10/19.
  */
 
-public class FragWePresenterImpl implements IFragWeContract.IFragWePrensenter{
+public class FragWePresenterImpl implements IFragWeContract.IFragWePresenter{
 
     private final IFragWeContract.IFragWeView view;
     //定义一个数据源
@@ -25,7 +25,7 @@ public class FragWePresenterImpl implements IFragWeContract.IFragWePrensenter{
     }
 
     @Override
-    public void intData() {
+    public void initData() {
         fragments = new ArrayList<>();
         /*进行数据测试*/
         fragments.add(new NewsFragment());

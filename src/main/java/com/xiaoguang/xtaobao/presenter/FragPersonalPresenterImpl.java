@@ -11,7 +11,7 @@ import com.xiaoguang.xtaobao.contract.IFragPersonalContract;
  * Created by 11655 on 2016/10/19.
  */
 
-public class FragPersonalPresenterImpl implements IFragPersonalContract.IFragPersonalPrensenter {
+public class FragPersonalPresenterImpl implements IFragPersonalContract.IFragPersonalPresenter {
     private IFragPersonalContract.IFragPersonalView view;
     public FragPersonalPresenterImpl(IFragPersonalContract.IFragPersonalView view) {
         this.view = view;
@@ -19,7 +19,7 @@ public class FragPersonalPresenterImpl implements IFragPersonalContract.IFragPer
     }
 
     @Override
-    public void intData() {
+    public void initData() {
         //获取中间的GridView
         GridView gridViewCenter = view.getmFragPersonalGvCenter();
         //获取下部的GridView控件

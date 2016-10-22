@@ -1,5 +1,6 @@
 package com.xiaoguang.xtaobao.contract;
 
+import com.baoyz.swipemenulistview.SwipeMenuListView;
 import com.xiaoguang.xtaobao.base.BasePresenter;
 import com.xiaoguang.xtaobao.base.BaseView;
 
@@ -8,8 +9,8 @@ import com.xiaoguang.xtaobao.base.BaseView;
  * Created by 11655 on 2016/10/18.
  */
 
-public class IBaseContract {
-   public interface IBaseView extends BaseView<IBasePresenter>{
+public class IAddressContract {
+   public interface IAddressView extends BaseView<IAddressPresenter>{
        /**
         * Toast数据
         * @param msg
@@ -33,8 +34,24 @@ public class IBaseContract {
         * activity的跳转
         */
        void jumpActivity();
-    }
-    public interface IBasePresenter extends BasePresenter<IBaseView>{
+
+       SwipeMenuListView getmActAddressLv();
+
+       /**
+        * 弹出提示框
+        * @param title 标题
+        * @param msg 内容
+        * @param flag 标记是否可以取消
+        */
+       void showAlerDialog(String title, String  msg, boolean flag);
+   }
+    public interface IAddressPresenter extends BasePresenter<IAddressView>{
+        /**
+         * 更新用户的收货地址
+         * @param text
+         * @param type 1 为新增   2
+         */
+        void updateAddress(String text,int type);
 
     }
 }

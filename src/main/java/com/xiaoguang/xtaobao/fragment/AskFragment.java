@@ -58,7 +58,7 @@ public class AskFragment extends BaseFragment implements IFragAskContract.IFragA
      */
     private Button btns[];
     private int btnID[];
-    private IFragAskContract.IFragAskPrensenter presenter;
+    private IFragAskContract.IFragAskPresenter presenter;
 
     @Override
     protected void lazyLoad() {
@@ -83,7 +83,7 @@ public class AskFragment extends BaseFragment implements IFragAskContract.IFragA
                 R.id.frag_ask_btn_media, R.id.frag_ask_btn_heathy};
         //默认第一个按钮被选中
         mFragAskBtnHot.setEnabled(false);
-        presenter.intData();
+        presenter.initData();
         //给viewpager设置监听事件
         mFragAskVp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -114,7 +114,7 @@ public class AskFragment extends BaseFragment implements IFragAskContract.IFragA
     }
 
     @Override
-    public void setPresenter(IFragAskContract.IFragAskPrensenter presenter) {
+    public void setPresenter(IFragAskContract.IFragAskPresenter presenter) {
         this.presenter = presenter;
     }
 

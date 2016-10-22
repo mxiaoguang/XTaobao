@@ -15,7 +15,7 @@ import java.util.ArrayList;
  * Created by 11655 on 2016/10/19.
  */
 
-public class FragAskPresenterImpl implements IFragAskContract.IFragAskPrensenter {
+public class FragAskPresenterImpl implements IFragAskContract.IFragAskPresenter {
     private final IFragAskContract.IFragAskView view;
     //设置数据源
     private ArrayList<Fragment> fragments;
@@ -26,7 +26,7 @@ public class FragAskPresenterImpl implements IFragAskContract.IFragAskPrensenter
     }
 
     @Override
-    public void intData() {
+    public void initData() {
         LogUtils.i("myTag","frag ask 执行了");
         fragments = new ArrayList<>();
         /*进行数据测试 8个种类*/

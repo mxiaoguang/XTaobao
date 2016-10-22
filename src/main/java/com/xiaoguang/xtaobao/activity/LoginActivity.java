@@ -39,7 +39,7 @@ public class LoginActivity extends BaseActivity implements ILoginContract.ILogin
     TextView mActLoginTvForget;
     @BindView(R.id.act_login_tv_reg)
     TextView mActLoginTvReg;
-    private ILoginContract.ILoginPrensenter presenter;
+    private ILoginContract.ILoginPresenter presenter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,7 +47,7 @@ public class LoginActivity extends BaseActivity implements ILoginContract.ILogin
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
         new ActLoginPresenterImpl(this);
-        presenter.intData();
+        presenter.initData();
     }
 
     //点击事件
@@ -71,7 +71,7 @@ public class LoginActivity extends BaseActivity implements ILoginContract.ILogin
     }
 
     @Override
-    public void setPresenter(ILoginContract.ILoginPrensenter presenter) {
+    public void setPresenter(ILoginContract.ILoginPresenter presenter) {
         this.presenter = presenter;
     }
     @Override

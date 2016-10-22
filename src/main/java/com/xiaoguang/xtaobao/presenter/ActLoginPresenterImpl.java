@@ -15,7 +15,7 @@ import cn.bmob.v3.listener.LogInListener;
  * Created by 11655 on 2016/10/20.
  */
 
-public class ActLoginPresenterImpl implements ILoginContract.ILoginPrensenter {
+public class ActLoginPresenterImpl implements ILoginContract.ILoginPresenter {
     ILoginContract.ILoginView view;
     private EditText mEtPhone, mEtPwd;
 
@@ -25,7 +25,7 @@ public class ActLoginPresenterImpl implements ILoginContract.ILoginPrensenter {
     }
 
     @Override
-    public void intData() {
+    public void initData() {
         //获取控件
         mEtPhone = view.getmActHomeEtPhone();
         mEtPwd = view.getmActLoginEtPwd();

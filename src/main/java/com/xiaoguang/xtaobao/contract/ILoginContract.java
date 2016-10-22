@@ -11,7 +11,7 @@ import com.xiaoguang.xtaobao.base.BaseView;
  */
 
 public class ILoginContract {
-   public interface ILoginView extends BaseView<ILoginPrensenter>{
+   public interface ILoginView extends BaseView<ILoginPresenter>{
        EditText getmActLoginEtPwd();
 
        EditText getmActHomeEtPhone();
@@ -40,7 +40,7 @@ public class ILoginContract {
         */
        void jumpActivity();
     }
-    public interface ILoginPrensenter extends BasePresenter<ILoginView>{
+    public interface ILoginPresenter extends BasePresenter<ILoginView>{
         /**
          * 登陆操作
          */

@@ -12,7 +12,7 @@ import com.xiaoguang.xtaobao.base.BaseView;
  */
 
 public class IFragWeContract {
-   public interface IFragWeView extends BaseView<IFragWePrensenter>{
+   public interface IFragWeView extends BaseView<IFragWePresenter>{
        /**
         * 获取ViewPager对象
         * @return ViewPager对象
@@ -25,7 +25,7 @@ public class IFragWeContract {
         */
        FragmentManager getManager();
    }
-    public interface IFragWePrensenter extends BasePresenter<IFragWeView>{
+    public interface IFragWePresenter extends BasePresenter<IFragWeView>{
 
     }
 }

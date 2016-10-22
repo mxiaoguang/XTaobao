@@ -15,6 +15,8 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import com.xiaoguang.xtaobao.R;
 import com.xiaoguang.xtaobao.activity.LoginActivity;
+import com.xiaoguang.xtaobao.activity.PersonDetialsActivity;
+import com.xiaoguang.xtaobao.activity.SettingActivtity;
 import com.xiaoguang.xtaobao.application.CustomApplcation;
 import com.xiaoguang.xtaobao.base.BaseFragment;
 import com.xiaoguang.xtaobao.config.Contracts;
@@ -26,6 +28,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import de.hdodenhof.circleimageview.CircleImageView;
 
+import static com.xiaoguang.xtaobao.R.id.frag_personal_iv_head;
+
 /**
  * 我的淘宝
  * Created by 11655 on 2016/10/19.
@@ -36,10 +40,9 @@ public class PersonalFragment extends BaseFragment implements IFragPersonalContr
     //获取控件
     @BindView(R.id.frag_personal_tv_setting)
     TextView mFragPersonalTvetting;
-    ImageView mFragPersonalIvPeron;
     @BindView(R.id.frag_personal_iv_msg)
     ImageView mFragPersonalIvMsg;
-    @BindView(R.id.frag_personal_iv_head)
+    @BindView(frag_personal_iv_head)
     CircleImageView mFragPersonalIvHead;
     @BindView(R.id.frag_personal_tv_nick_name)
     TextView mFragPersonalTvNickName;
@@ -61,7 +64,7 @@ public class PersonalFragment extends BaseFragment implements IFragPersonalContr
     GridView mFragPersonalGvCenter;
     @BindView(R.id.frag_personal_gv_bottom)
     GridView mFragPersonalGvBottom;
-    private IFragPersonalContract.IFragPersonalPrensenter presenter;
+    private IFragPersonalContract.IFragPersonalPresenter presenter;
     /**
      * 标志位，标志已经初始化完成
      */
@@ -92,7 +95,7 @@ public class PersonalFragment extends BaseFragment implements IFragPersonalContr
     @Override
     protected void initData(@Nullable Bundle savedInstanceState) {
         new FragPersonalPresenterImpl(this);
-        presenter.intData();
+        presenter.initData();
     }
 
     @Override
@@ -104,17 +107,23 @@ public class PersonalFragment extends BaseFragment implements IFragPersonalContr
     }
 
     @Override
-    public void setPresenter(IFragPersonalContract.IFragPersonalPrensenter presenter) {
+    public void setPresenter(IFragPersonalContract.IFragPersonalPresenter presenter) {
         this.presenter = presenter;
     }
 
     //点击事件
-    @OnClick({R.id.frag_personal_tv_setting, R.id.frag_personal_iv_msg, R.id.frag_personal_rl_show_dingdan, R.id.frag_personal_btn_pay, R.id.frag_personal_btn_daifahuo, R.id.frag_personal_btn_daishouhuo, R.id.frag_home_personal_daipingjia, R.id.frag_personal_btn_tuikuan, R.id.frag_personal_rl_show_jianzhi})
+    @OnClick({R.id.frag_personal_tv_setting,R.id.frag_personal_iv_head, R.id.frag_personal_iv_msg, R.id.frag_personal_rl_show_dingdan, R.id.frag_personal_btn_pay, R.id.frag_personal_btn_daifahuo, R.id.frag_personal_btn_daishouhuo, R.id.frag_home_personal_daipingjia, R.id.frag_personal_btn_tuikuan, R.id.frag_personal_rl_show_jianzhi})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.frag_personal_tv_setting:
+                //跳转到设置界面
+                startActivity(new Intent(getContext(), SettingActivtity.class));
                 break;
             case R.id.frag_personal_iv_msg:
+                break;
+            case R.id.frag_personal_iv_head:
+                //跳转到个人详情页面
+                startActivity(new Intent(getContext(), PersonDetialsActivity.class));
                 break;
             case R.id.frag_personal_rl_show_dingdan:
                 break;

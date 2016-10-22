@@ -21,7 +21,7 @@ import java.util.List;
  * Created by 11655 on 2016/10/19.
  */
 
-public class ActHomePresenterImpl implements IHomeContract.IHomePrensenter {
+public class ActHomePresenterImpl implements IHomeContract.IHomePresenter {
     private final IHomeContract.IHomeView view;
     private FragmentPagerAdapter pagerAdapter;
     //声明一个集合用于存放Fragment
@@ -33,7 +33,7 @@ public class ActHomePresenterImpl implements IHomeContract.IHomePrensenter {
     }
 
     @Override
-    public void intData() {
+    public void initData() {
         //获取显示内容的viewpager
         ViewPager viewPagerContent = view.getmActHomeVpContent();
         //初始化数据

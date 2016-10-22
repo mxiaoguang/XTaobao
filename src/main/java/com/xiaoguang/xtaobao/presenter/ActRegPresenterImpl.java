@@ -33,7 +33,7 @@ public class ActRegPresenterImpl implements IRegisterContract.IIRegisterPrensent
     }
 
     @Override
-    public void intData() {
+    public void initData() {
         //获取控件
         mEtPhone = view.getmActHomeEtPhone();
         mEtCode = view.getmActHomeEtSmsCode();

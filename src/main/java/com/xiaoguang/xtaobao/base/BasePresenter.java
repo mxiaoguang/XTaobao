@@ -5,8 +5,10 @@ package com.xiaoguang.xtaobao.base;
  */
 
 public interface BasePresenter<T extends BaseView> {
+
+    String TAG = "myTag";
     /**
      * 初始化操作
      */
-    void intData();
+    void initData();
 }

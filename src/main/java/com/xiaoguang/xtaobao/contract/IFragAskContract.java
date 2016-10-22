@@ -12,7 +12,7 @@ import com.xiaoguang.xtaobao.base.BaseView;
  */
 
 public class IFragAskContract {
-   public interface IFragAskView extends BaseView<IFragAskPrensenter>{
+   public interface IFragAskView extends BaseView<IFragAskPresenter>{
        /**
         * 获取当前Fragment中的viewpager
         * @return
@@ -25,6 +25,6 @@ public class IFragAskContract {
         */
        FragmentManager getManager();
    }
-    public interface IFragAskPrensenter extends BasePresenter<IFragAskView>{
+    public interface IFragAskPresenter extends BasePresenter<IFragAskView>{
     }
 }

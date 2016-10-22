@@ -20,7 +20,7 @@ import com.xiaoguang.xtaobao.presenter.FragShopCarPresenterImpl;
 
 public class ShopcarFragment extends BaseFragment implements IFragShopCarContract.IFragShopCarView {
 
-    private IFragShopCarContract.IFragShopCarPrensenter presenter;
+    private IFragShopCarContract.IFragShopCarPresenter presenter;
     /**
      * 标志位，标志已经初始化完成
      */
@@ -53,7 +53,7 @@ public class ShopcarFragment extends BaseFragment implements IFragShopCarContrac
     @Override
     protected void initData(@Nullable Bundle savedInstanceState) {
         new FragShopCarPresenterImpl(this);
-        presenter.intData();
+        presenter.initData();
     }
 
     @Override
@@ -66,7 +66,7 @@ public class ShopcarFragment extends BaseFragment implements IFragShopCarContrac
     }
 
     @Override
-    public void setPresenter(IFragShopCarContract.IFragShopCarPrensenter presenter) {
+    public void setPresenter(IFragShopCarContract.IFragShopCarPresenter presenter) {
         this.presenter = presenter;
     }
 }

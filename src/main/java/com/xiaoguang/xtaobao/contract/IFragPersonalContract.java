@@ -11,13 +11,13 @@ import com.xiaoguang.xtaobao.base.BaseView;
  */
 
 public class IFragPersonalContract {
-   public interface IFragPersonalView extends BaseView<IFragPersonalPrensenter>{
+   public interface IFragPersonalView extends BaseView<IFragPersonalPresenter>{
 
        GridView getmFragPersonalGvBottom();
 
        GridView getmFragPersonalGvCenter();
    }
-    public interface IFragPersonalPrensenter extends BasePresenter<IFragPersonalView>{
+    public interface IFragPersonalPresenter extends BasePresenter<IFragPersonalView>{
 
     }
 }

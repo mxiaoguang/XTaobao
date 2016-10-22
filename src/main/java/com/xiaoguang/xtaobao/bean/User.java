@@ -1,5 +1,8 @@
 package com.xiaoguang.xtaobao.bean;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.datatype.BmobFile;
 
@@ -12,6 +15,10 @@ public class User extends BmobUser {
     private String nickName;
     //头像
     private BmobFile userHead;
+    //性别
+    private String sex;
+    //收货地址的集合
+    private List<String> addressLists;
 
     public String getNickName() {
         return nickName;
@@ -22,7 +29,7 @@ public class User extends BmobUser {
     }
 
     public BmobFile getUserHead() {
-        if (userHead==null){
+        if (userHead == null) {
             userHead = new BmobFile();
         }
         return userHead;
@@ -30,5 +37,24 @@ public class User extends BmobUser {
 
     public void setUserHead(BmobFile userHead) {
         this.userHead = userHead;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public List<String> getAddressLists() {
+        if (addressLists == null) {
+            addressLists = new ArrayList<>();
+        }
+        return addressLists;
+    }
+
+    public void setAddressLists(List<String> addressLists) {
+        this.addressLists = addressLists;
     }
 }

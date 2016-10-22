@@ -41,7 +41,7 @@ public class WeFragment extends BaseFragment implements IFragWeContract.IFragWeV
     Button mFragWeBtnHotTitle;
     @BindView(R.id.frag_we_btn_medial)
     Button mFragWeBtnMedial;
-    private IFragWeContract.IFragWePrensenter presenter;
+    private IFragWeContract.IFragWePresenter presenter;
     //Fragment的管理器
     private FragmentManager manager;
     /**
@@ -72,7 +72,7 @@ public class WeFragment extends BaseFragment implements IFragWeContract.IFragWeV
         //默认第一个按钮被选中
         mFragWeBtnNews.setEnabled(false);
         //初始化数据
-        presenter.intData();
+        presenter.initData();
         //为vp设置监听事件
         mFragWeVp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -97,7 +97,7 @@ public class WeFragment extends BaseFragment implements IFragWeContract.IFragWeV
     }
 
     @Override
-    public void setPresenter(IFragWeContract.IFragWePrensenter presenter) {
+    public void setPresenter(IFragWeContract.IFragWePresenter presenter) {
         this.presenter = presenter;
     }
 

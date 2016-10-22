@@ -50,7 +50,7 @@ public class RegisterActivity extends BaseActivity implements IRegisterContract.
         setContentView(R.layout.activity_register);
         ButterKnife.bind(this);
         new ActRegPresenterImpl(this);
-        presenter.intData();
+        presenter.initData();
     }
 
     @Override
