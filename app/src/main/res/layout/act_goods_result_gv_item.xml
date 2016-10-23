@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--查询结果展示的item的布局-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/act_goods_result_gv_item_iv"
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:src="@drawable/bookbag"/>
+    <TextView
+        android:id="@+id/act_goods_result_gv_item_tv_name"
+        android:layout_marginTop="5dp"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/colorFont"
+        android:textSize="18sp"
+        android:text="冬季加绒保暖内衣"/>
+    <TextView
+        android:id="@+id/act_goods_result_gv_item_tv_money"
+        android:layout_width="50dp"
+        android:layout_marginTop="5dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="20dp"
+        android:textColor="#FF7932"
+        android:text="¥ 59.00"/>
+</LinearLayout>

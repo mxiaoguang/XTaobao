@@ -1,0 +1,127 @@
+package com.xiaoguang.xtaobao.activity;
+
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.jude.rollviewpager.RollPagerView;
+import com.xiaoguang.xtaobao.R;
+import com.xiaoguang.xtaobao.base.BaseActivity;
+import com.xiaoguang.xtaobao.contract.IGoodsDetialsContract;
+import com.xiaoguang.xtaobao.presenter.ActGoodsDetailsPresenterImpl;
+import com.xiaoguang.xtaobao.util.ToastFactory;
+import com.xiaoguang.xtaobao.widget.XListView;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
+/**
+ * Created by 11655 on 2016/10/23.
+ */
+
+public class GoodsDetailsActivity extends BaseActivity implements IGoodsDetialsContract.IGoodsDetialsView {
+
+    //获取控件
+    @BindView(R.id.act_goods_details_iv_back)
+    ImageView mActGoodsDetailsIvBack;
+    @BindView(R.id.act_goods_details_tv_menu)
+    TextView mActGoodsDetailsTvMenu;
+    @BindView(R.id.act_goods_details_roll_vp_ad)
+    RollPagerView mActGoodsDetailsRollVpAd;
+    @BindView(R.id.act_goods_details_tv_goods_name)
+    TextView mActGoodsDetailsTvGoodsName;
+    @BindView(R.id.act_goods_details_btn_share)
+    Button mActGoodsDetailsBtnShare;
+    @BindView(R.id.act_goods_details_tv_money)
+    TextView mActGoodsDetailsTvMoney;
+    @BindView(R.id.act_goods_details_xlv)
+    XListView mActGoodsDetailsXlv;
+    @BindView(R.id.act_goods_details_btn_kefu)
+    Button mActGoodsDetailsBtnKefu;
+    @BindView(R.id.act_goods_details_btn_dianpu)
+    Button mActGoodsDetailsBtnDianpu;
+    @BindView(R.id.act_goods_details_btn_shoucang)
+    Button mActGoodsDetailsBtnShoucang;
+    @BindView(R.id.act_goods_details_btn_jiaru)
+    Button mActGoodsDetailsBtnJiaru;
+    @BindView(R.id.act_goods_details_btn_goumai)
+    Button mActGoodsDetailsBtnGoumai;
+    private IGoodsDetialsContract.IGoodsDetialsPresenter presenter;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.act_goods_details);
+        ButterKnife.bind(this);
+        new ActGoodsDetailsPresenterImpl(this);
+        presenter.initData();
+    }
+
+    @Override
+    public void showMsg(String msg) {
+        ToastFactory.getToast(this, msg).show();
+    }
+
+    @Override
+    public void showLoadingDialog(String title, String msg, boolean flag) {
+        super.showProcessDialog(title, msg, flag);
+    }
+
+    @Override
+    public void canelLoadingDialog() {
+        super.dismissProcessDialog();
+    }
+
+    @Override
+    public void jumpActivity() {
+
+    }
+
+    @Override
+    public void setPresenter(IGoodsDetialsContract.IGoodsDetialsPresenter presenter) {
+        this.presenter = presenter;
+    }
+
+    @OnClick({R.id.act_goods_details_iv_back, R.id.act_goods_details_tv_menu, R.id.act_goods_details_btn_share, R.id.act_goods_details_btn_kefu, R.id.act_goods_details_btn_dianpu, R.id.act_goods_details_btn_shoucang, R.id.act_goods_details_btn_jiaru, R.id.act_goods_details_btn_goumai})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.act_goods_details_iv_back:
+                break;
+            case R.id.act_goods_details_tv_menu:
+                break;
+            case R.id.act_goods_details_btn_share:
+                break;
+            case R.id.act_goods_details_btn_kefu:
+                break;
+            case R.id.act_goods_details_btn_dianpu:
+                break;
+            case R.id.act_goods_details_btn_shoucang:
+                break;
+            case R.id.act_goods_details_btn_jiaru:
+                break;
+            case R.id.act_goods_details_btn_goumai:
+                break;
+        }
+    }
+    @Override
+    public RollPagerView getmActGoodsDetailsRollVpAd() {
+        return mActGoodsDetailsRollVpAd;
+    }
+
+    @Override
+    public TextView getmActGoodsDetailsTvGoodsName() {
+        return mActGoodsDetailsTvGoodsName;
+    }
+    @Override
+    public XListView getmActGoodsDetailsXlv() {
+        return mActGoodsDetailsXlv;
+    }
+    @Override
+    public TextView getmActGoodsDetailsTvMoney() {
+        return mActGoodsDetailsTvMoney;
+    }
+}

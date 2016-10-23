@@ -1,0 +1,415 @@
+[
+    {
+        "outputFile": "E:\\Workspaces\\Projects\\XTaobao\\iOS_Dialog_Library\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-v11\\values-v11.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endLine": 4,
+                    "endColumn": 12,
+                    "endOffset": 199
+                },
+                "from": {
+                    "file": "E:\\Workspaces\\Projects\\XTaobao\\iOS_Dialog_Library\\src\\main\\res\\values-v11\\styles.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 182,
+                        "endLine": 8,
+                        "endColumn": 12,
+                        "endOffset": 328
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 204,
+                    "endLine": 10,
+                    "endColumn": 12,
+                    "endOffset": 618
+                },
+                "from": {
+                    "file": "E:\\Workspaces\\Projects\\XTaobao\\iOS_Dialog_Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\values-v11\\values-v11.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endLine": 7,
+                        "endColumn": 12,
+                        "endOffset": 469
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 623,
+                    "endLine": 16,
+                    "endColumn": 12,
+                    "endOffset": 1043
+                },
+                "from": {
+                    "file": "E:\\Workspaces\\Projects\\XTaobao\\iOS_Dialog_Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\values-v11\\values-v11.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 474,
+                        "endLine": 13,
+                        "endColumn": 12,
+                        "endOffset": 894
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 1048,
+                    "endLine": 22,
+                    "endColumn": 12,
+                    "endOffset": 1471
+                },
+                "from": {
+                    "file": "E:\\Workspaces\\Projects\\XTaobao\\iOS_Dialog_Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\values-v11\\values-v11.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 899,
+                        "endLine": 19,
+                        "endColumn": 12,
+                        "endOffset": 1322
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 23,
+                    "startColumn": 4,
+                    "startOffset": 1476,
+                    "endLine": 28,
+                    "endColumn": 12,
+                    "endOffset": 1897
+                },
+                "from": {
+                    "file": "E:\\Workspaces\\Projects\\XTaobao\\iOS_Dialog_Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\values-v11\\values-v11.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 1327,
+                        "endLine": 25,
+                        "endColumn": 12,
+                        "endOffset": 1748
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 29,
+                    "startColumn": 4,
+                    "startOffset": 1902,
+                    "endLine": 34,
+                    "endColumn": 12,
+                    "endOffset": 2324
+                },
+                "from": {
+                    "file": "E:\\Workspaces\\Projects\\XTaobao\\iOS_Dialog_Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\values-v11\\values-v11.xml",
+                    "position": {
+                        "startLine": 26,
+                        "startColumn": 4,
+                        "startOffset": 1753,
+                        "endLine": 31,
+                        "endColumn": 12,
+                        "endOffset": 2175
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 35,
+                    "startColumn": 4,
+                    "startOffset": 2329,
+                    "endLine": 40,
+                    "endColumn": 12,
+                    "endOffset": 2749
+                },
+                "from": {
+                    "file": "E:\\Workspaces\\Projects\\XTaobao\\iOS_Dialog_Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\values-v11\\values-v11.xml",
+                    "position": {
+                        "startLine": 32,
+                        "startColumn": 4,
+                        "startOffset": 2180,
+                        "endLine": 37,
+                        "endColumn": 12,
+                        "endOffset": 2600
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 41,
+                    "startColumn": 4,
+                    "startOffset": 2754,
+                    "endColumn": 88,
+                    "endOffset": 2838
+                },
+                "from": {
+                    "file": "E:\\Workspaces\\Projects\\XTaobao\\iOS_Dialog_Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\values-v11\\values-v11.xml",
+                    "position": {
+                        "startLine": 38,
+                        "startColumn": 4,
+                        "startOffset": 2605,
+                        "endColumn": 88,
+                        "endOffset": 2689
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 42,
+                    "startColumn": 4,
+                    "startOffset": 2843,
+                    "endColumn": 100,
+                    "endOffset": 2939
+                },
+                "from": {
+                    "file": "E:\\Workspaces\\Projects\\XTaobao\\iOS_Dialog_Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\values-v11\\values-v11.xml",
+                    "position": {
+                        "startLine": 39,
+                        "startColumn": 4,
+                        "startOffset": 2694,
+                        "endColumn": 100,
+                        "endOffset": 2790
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 43,
+                    "startColumn": 4,
+                    "startOffset": 2944,
+                    "endColumn": 102,
+                    "endOffset": 3042
+                },
+                "from": {
+                    "file": "E:\\Workspaces\\Projects\\XTaobao\\iOS_Dialog_Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\values-v11\\values-v11.xml",
+                    "position": {
+                        "startLine": 40,
+                        "startColumn": 4,
+                        "startOffset": 2795,
+                        "endColumn": 102,
+                        "endOffset": 2893
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 44,
+                    "startColumn": 4,
+                    "startOffset": 3047,
+                    "endLine": 48,
+                    "endColumn": 12,
+                    "endOffset": 3450
+                },
+                "from": {
+                    "file": "E:\\Workspaces\\Projects\\XTaobao\\iOS_Dialog_Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\values-v11\\values-v11.xml",
+                    "position": {
+                        "startLine": 41,
+                        "startColumn": 4,
+                        "startOffset": 2898,
+                        "endLine": 45,
+                        "endColumn": 12,
+                        "endOffset": 3301
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 49,
+                    "startColumn": 4,
+                    "startOffset": 3455,
+                    "endLine": 53,
+                    "endColumn": 12,
+                    "endOffset": 3870
+                },
+                "from": {
+                    "file": "E:\\Workspaces\\Projects\\XTaobao\\iOS_Dialog_Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\values-v11\\values-v11.xml",
+                    "position": {
+                        "startLine": 46,
+                        "startColumn": 4,
+                        "startOffset": 3306,
+                        "endLine": 50,
+                        "endColumn": 12,
+                        "endOffset": 3721
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 54,
+                    "startColumn": 4,
+                    "startOffset": 3875,
+                    "endLine": 58,
+                    "endColumn": 12,
+                    "endOffset": 4292
+                },
+                "from": {
+                    "file": "E:\\Workspaces\\Projects\\XTaobao\\iOS_Dialog_Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\values-v11\\values-v11.xml",
+                    "position": {
+                        "startLine": 51,
+                        "startColumn": 4,
+                        "startOffset": 3726,
+                        "endLine": 55,
+                        "endColumn": 12,
+                        "endOffset": 4143
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 59,
+                    "startColumn": 4,
+                    "startOffset": 4297,
+                    "endLine": 60,
+                    "endColumn": 12,
+                    "endOffset": 4399
+                },
+                "from": {
+                    "file": "E:\\Workspaces\\Projects\\XTaobao\\iOS_Dialog_Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\values-v11\\values-v11.xml",
+                    "position": {
+                        "startLine": 56,
+                        "startColumn": 4,
+                        "startOffset": 4148,
+                        "endLine": 57,
+                        "endColumn": 12,
+                        "endOffset": 4250
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 61,
+                    "startColumn": 4,
+                    "startOffset": 4404,
+                    "endLine": 62,
+                    "endColumn": 12,
+                    "endOffset": 4528
+                },
+                "from": {
+                    "file": "E:\\Workspaces\\Projects\\XTaobao\\iOS_Dialog_Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\values-v11\\values-v11.xml",
+                    "position": {
+                        "startLine": 58,
+                        "startColumn": 4,
+                        "startOffset": 4255,
+                        "endLine": 59,
+                        "endColumn": 12,
+                        "endOffset": 4379
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 63,
+                    "startColumn": 4,
+                    "startOffset": 4533,
+                    "endColumn": 70,
+                    "endOffset": 4599
+                },
+                "from": {
+                    "file": "E:\\Workspaces\\Projects\\XTaobao\\iOS_Dialog_Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\values-v11\\values-v11.xml",
+                    "position": {
+                        "startLine": 60,
+                        "startColumn": 4,
+                        "startOffset": 4384,
+                        "endColumn": 70,
+                        "endOffset": 4450
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 64,
+                    "startColumn": 4,
+                    "startOffset": 4604,
+                    "endColumn": 82,
+                    "endOffset": 4682
+                },
+                "from": {
+                    "file": "E:\\Workspaces\\Projects\\XTaobao\\iOS_Dialog_Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\values-v11\\values-v11.xml",
+                    "position": {
+                        "startLine": 61,
+                        "startColumn": 4,
+                        "startOffset": 4455,
+                        "endColumn": 82,
+                        "endOffset": 4533
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 65,
+                    "startColumn": 4,
+                    "startOffset": 4687,
+                    "endLine": 117,
+                    "endColumn": 12,
+                    "endOffset": 8613
+                },
+                "from": {
+                    "file": "E:\\Workspaces\\Projects\\XTaobao\\iOS_Dialog_Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\values-v11\\values-v11.xml",
+                    "position": {
+                        "startLine": 62,
+                        "startColumn": 4,
+                        "startOffset": 4538,
+                        "endLine": 114,
+                        "endColumn": 12,
+                        "endOffset": 8464
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 118,
+                    "startColumn": 4,
+                    "startOffset": 8618,
+                    "endLine": 171,
+                    "endColumn": 12,
+                    "endOffset": 12687
+                },
+                "from": {
+                    "file": "E:\\Workspaces\\Projects\\XTaobao\\iOS_Dialog_Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\values-v11\\values-v11.xml",
+                    "position": {
+                        "startLine": 115,
+                        "startColumn": 4,
+                        "startOffset": 8469,
+                        "endLine": 168,
+                        "endColumn": 12,
+                        "endOffset": 12538
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 172,
+                    "startColumn": 4,
+                    "startOffset": 12692,
+                    "endColumn": 90,
+                    "endOffset": 12778
+                },
+                "from": {
+                    "file": "E:\\Workspaces\\Projects\\XTaobao\\iOS_Dialog_Library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\values-v11\\values-v11.xml",
+                    "position": {
+                        "startLine": 169,
+                        "startColumn": 4,
+                        "startOffset": 12543,
+                        "endColumn": 90,
+                        "endOffset": 12629
+                    }
+                }
+            }
+        ]
+    }
+]

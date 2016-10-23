@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?><!--商品详情页面-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <!--导航栏结束-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorBackground"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/act_goods_details_iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:clickable="true"
+            android:src="@drawable/frag_personal_left" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="商品详情"
+            android:textColor="@color/colorFont"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/act_goods_details_tv_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:text="菜单"
+            android:textColor="@color/colorFont" />
+    </LinearLayout>
+    <!--导航栏结束-->
+    <!--图片详情页面-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.jude.rollviewpager.RollPagerView
+                android:id="@+id/act_goods_details_roll_vp_ad"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                app:rollviewpager_play_delay="3000" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorLine" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/act_goods_details_tv_goods_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="dasdadadadd"
+                    android:textColor="@color/colorFont"
+                    android:textSize="18sp" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorLine"></View>
+
+                <Button
+                    android:id="@+id/act_goods_details_btn_share"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/colorTransparency"
+                    android:drawableTop="@drawable/act_goods_details_share"
+                    android:gravity="center"
+                    android:text="分享"
+                    android:textColor="@color/colorFont" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/act_goods_details_tv_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:text="¥ 500.00"
+                android:textColor="@color/colorTopFont"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:text="24:00前付款,预计后天送到"
+                android:textColor="@color/colorFont"
+                android:textSize="13sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorLine" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="35dp"
+                android:text="宝贝评价"
+                android:textColor="@color/colorFont"
+                android:textSize="18sp" />
+
+            <com.xiaoguang.xtaobao.widget.XListView
+                android:id="@+id/act_goods_details_xlv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"></com.xiaoguang.xtaobao.widget.XListView>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/act_goods_details_btn_kefu"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorTransparency"
+            android:drawableTop="@drawable/act_goods_details_kefu"
+            android:gravity="center"
+            android:text="客服"
+            android:textColor="@drawable/selector_act_home_btn_text_color" />
+
+        <Button
+            android:id="@+id/act_goods_details_btn_dianpu"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorTransparency"
+            android:drawableTop="@drawable/act_goods_details_btn_dianpu"
+            android:gravity="center"
+            android:text="店铺"
+            android:textColor="@drawable/selector_act_home_btn_text_color" />
+
+        <Button
+            android:id="@+id/act_goods_details_btn_shoucang"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorTransparency"
+            android:drawableTop="@drawable/act_goods_details_shoucang"
+            android:gravity="center"
+            android:text="收藏"
+            android:textColor="@drawable/selector_act_home_btn_text_color" />
+
+        <Button
+            android:id="@+id/act_goods_details_btn_jiaru"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_weight="2"
+            android:background="@color/colorTopSelected"
+            android:clickable="true"
+            android:text="加入购物车"
+            android:textColor="#ddffffff"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/act_goods_details_btn_goumai"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_weight="2"
+            android:background="@color/colorTop"
+            android:clickable="true"
+            android:text="立即购买"
+            android:textColor="#ddffffff"
+            android:textSize="18sp" />
+    </LinearLayout>
+</RelativeLayout>

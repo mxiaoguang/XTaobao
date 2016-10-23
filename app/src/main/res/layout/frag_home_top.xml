@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@color/colorTop"
+    android:orientation="horizontal">
+
+    <Button
+        android:id="@+id/act_home_btn_scan"
+        android:layout_width="45dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="6dp"
+        android:background="@color/colorTransparency"
+        android:drawableTop="@drawable/act_home_scan"
+        android:text="@string/act_home_top_scan"
+        android:textColor="@color/colorTopIcon"
+        android:textSize="@dimen/act_top_font" />
+
+    <EditText
+        android:id="@+id/frag_home_et_search"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="1"
+        android:background="@color/colorTopSearch"
+        android:drawableLeft="@drawable/act_home_search"
+        android:drawableRight="@drawable/act_home_take_photo"
+        android:textColor="@color/colorTopIcon"
+        android:singleLine="true"
+        android:hint="给爱宠一个窝"
+        android:textColorHint="@color/colorTopIcon" />
+
+    <Button
+        android:id="@+id/act_home_btn_msg"
+        android:layout_width="45dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="6dp"
+        android:background="@color/colorTransparency"
+        android:drawableTop="@drawable/act_home_msg"
+        android:text="@string/act_home_top_msg"
+        android:textColor="@color/colorTopIcon"
+        android:textSize="@dimen/act_top_font" />
+</LinearLayout>
