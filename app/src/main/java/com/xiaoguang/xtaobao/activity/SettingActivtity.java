@@ -48,7 +48,7 @@ public class SettingActivtity extends BaseActivity implements ISettingContract.I
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_personal_setting);
+        setContentView(R.layout.act_personal_setting);
         ButterKnife.bind(this);
         new ActSettingPresenterImpl(this);
     }

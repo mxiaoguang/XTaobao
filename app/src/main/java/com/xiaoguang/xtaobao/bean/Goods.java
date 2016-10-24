@@ -22,6 +22,8 @@ public class Goods extends BmobObject {
     private double goodsPrice;
     //商品的发货地址
     private String goodsAddress;
+    //收藏商品的人
+    private List<String> loveUserIds;
 
     public String getGoodsName() {
         return goodsName;
@@ -66,6 +68,17 @@ public class Goods extends BmobObject {
         this.goodsAddress = goodsAddress;
     }
 
+    public List<String> getLoveUserIds() {
+        if (loveUserIds==null){
+            loveUserIds = new ArrayList<>();
+        }
+        return loveUserIds;
+    }
+
+    public void setLoveUserIds(List<String> loveUserIds) {
+        this.loveUserIds = loveUserIds;
+    }
+
     @Override
     public String toString() {
         return "Goods{" +
@@ -74,6 +87,7 @@ public class Goods extends BmobObject {
                 ", goodsImgs=" + goodsImgs +
                 ", goodsPrice=" + goodsPrice +
                 ", goodsAddress='" + goodsAddress + '\'' +
+                ", loveUserIds=" + loveUserIds +
                 '}';
     }
 }

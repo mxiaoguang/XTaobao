@@ -9,6 +9,11 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.view.WindowManager;
 
+import com.xiaoguang.xtaobao.application.CustomApplcation;
+import com.xiaoguang.xtaobao.bean.User;
+
+import cn.bmob.v3.BmobUser;
+
 /**
  * 所有Activity的基类
  * Created by 11655 on 2016/10/18.
@@ -84,5 +89,18 @@ public class BaseActivity extends FragmentActivity {
         if(dialog!=null){
             dialog.dismiss();
         }
+    }
+
+    /**
+     * 判断用户是否登陆过
+     *
+     * @return true 为登陆成功 false 为没有登陆过
+     */
+    protected boolean isLogin() {
+        if (BmobUser.getCurrentUser() == null) {
+            return false;
+        }
+        CustomApplcation.getInstance().setCurrentUser(BmobUser.getCurrentUser(User.class));
+        return true;
     }
 }

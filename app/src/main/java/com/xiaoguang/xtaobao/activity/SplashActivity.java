@@ -49,7 +49,7 @@ public class SplashActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
+        setContentView(R.layout.act_splash);
         //实现沉浸式通知栏
         immersiveNotification();
         mStartTime = System.currentTimeMillis();//记录开始时间，

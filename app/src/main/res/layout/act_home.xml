@@ -15,5 +15,5 @@
         android:layout_height="1dp"
         android:background="@color/colorLine"></View>
     <!--底部区域-->
-    <include layout="@layout/activity_home_bottom" />
+    <include layout="@layout/act_home_bottom" />
 </LinearLayout>

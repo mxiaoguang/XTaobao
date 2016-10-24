@@ -47,7 +47,7 @@ public class RegisterActivity extends BaseActivity implements IRegisterContract.
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        setContentView(R.layout.act_register);
         ButterKnife.bind(this);
         new ActRegPresenterImpl(this);
         presenter.initData();

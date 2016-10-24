@@ -6,6 +6,7 @@
     android:orientation="vertical">
     <!--导航栏结束-->
     <LinearLayout
+        android:layout_alignParentEnd="true"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentStart="true"
@@ -48,7 +49,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <com.jude.rollviewpager.RollPagerView
@@ -131,7 +132,7 @@
             <com.xiaoguang.xtaobao.widget.XListView
                 android:id="@+id/act_goods_details_xlv"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="150dp"
                 android:layout_marginTop="5dp"></com.xiaoguang.xtaobao.widget.XListView>
         </LinearLayout>
     </ScrollView>

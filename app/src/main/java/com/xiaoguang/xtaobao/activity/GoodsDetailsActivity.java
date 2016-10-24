@@ -1,5 +1,6 @@
 package com.xiaoguang.xtaobao.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -10,7 +11,7 @@ import android.widget.TextView;
 import com.jude.rollviewpager.RollPagerView;
 import com.xiaoguang.xtaobao.R;
 import com.xiaoguang.xtaobao.base.BaseActivity;
-import com.xiaoguang.xtaobao.contract.IGoodsDetialsContract;
+import com.xiaoguang.xtaobao.contract.IGoodsDetailsContract;
 import com.xiaoguang.xtaobao.presenter.ActGoodsDetailsPresenterImpl;
 import com.xiaoguang.xtaobao.util.ToastFactory;
 import com.xiaoguang.xtaobao.widget.XListView;
@@ -23,7 +24,7 @@ import butterknife.OnClick;
  * Created by 11655 on 2016/10/23.
  */
 
-public class GoodsDetailsActivity extends BaseActivity implements IGoodsDetialsContract.IGoodsDetialsView {
+public class GoodsDetailsActivity extends BaseActivity implements IGoodsDetailsContract.IGoodsDetailsView {
 
     //获取控件
     @BindView(R.id.act_goods_details_iv_back)
@@ -50,7 +51,7 @@ public class GoodsDetailsActivity extends BaseActivity implements IGoodsDetialsC
     Button mActGoodsDetailsBtnJiaru;
     @BindView(R.id.act_goods_details_btn_goumai)
     Button mActGoodsDetailsBtnGoumai;
-    private IGoodsDetialsContract.IGoodsDetialsPresenter presenter;
+    private IGoodsDetailsContract.IGoodsDetailsPresenter presenter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -82,7 +83,12 @@ public class GoodsDetailsActivity extends BaseActivity implements IGoodsDetialsC
     }
 
     @Override
-    public void setPresenter(IGoodsDetialsContract.IGoodsDetialsPresenter presenter) {
+    public void jumpLogin() {
+        startActivity(new Intent(this,LoginActivity.class));
+    }
+
+    @Override
+    public void setPresenter(IGoodsDetailsContract.IGoodsDetailsPresenter presenter) {
         this.presenter = presenter;
     }
 
@@ -90,6 +96,7 @@ public class GoodsDetailsActivity extends BaseActivity implements IGoodsDetialsC
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.act_goods_details_iv_back:
+                finish();
                 break;
             case R.id.act_goods_details_tv_menu:
                 break;
@@ -99,11 +106,22 @@ public class GoodsDetailsActivity extends BaseActivity implements IGoodsDetialsC
                 break;
             case R.id.act_goods_details_btn_dianpu:
                 break;
-            case R.id.act_goods_details_btn_shoucang:
+            case R.id.act_goods_details_btn_shoucang://收藏按钮被点击时,暂时不使用
                 break;
-            case R.id.act_goods_details_btn_jiaru:
+            case R.id.act_goods_details_btn_jiaru://加入购物车
+                if (isLogin()){
+
+                }else {
+                    jumpLogin();
+                }
                 break;
-            case R.id.act_goods_details_btn_goumai:
+            case R.id.act_goods_details_btn_goumai://购买
+                if (isLogin()){
+                    //跳转到下单页面
+                    startActivity(new Intent(this,OrdersActivity.class));
+                }else {
+                    jumpLogin();
+                }
                 break;
         }
     }
@@ -123,5 +141,9 @@ public class GoodsDetailsActivity extends BaseActivity implements IGoodsDetialsC
     @Override
     public TextView getmActGoodsDetailsTvMoney() {
         return mActGoodsDetailsTvMoney;
+    }
+    @Override
+    public Button getmActGoodsDetailsBtnShoucang() {
+        return mActGoodsDetailsBtnShoucang;
     }
 }

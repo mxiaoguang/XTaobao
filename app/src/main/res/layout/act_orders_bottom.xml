@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:layout_alignParentBottom="true"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="130dp"
+        android:gravity="center"
+        android:text="合计:"
+        android:textColor="@color/colorFont"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/act_orders_tv_num_money"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:gravity="center"
+        android:text="¥ 599.00"
+        android:textColor="@color/colorSelectedIcon"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/act_orders_btn_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorSelectedIcon"
+        android:text="提交订单"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:textColor="#ffffff"
+        android:textSize="18sp" />
+</LinearLayout>

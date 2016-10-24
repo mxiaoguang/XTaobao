@@ -44,7 +44,7 @@ public class LoginActivity extends BaseActivity implements ILoginContract.ILogin
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.act_login);
         ButterKnife.bind(this);
         new ActLoginPresenterImpl(this);
         presenter.initData();

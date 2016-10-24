@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/act_detials_xlv_item_civ_head"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:src="@drawable/pager1" />
+
+    <TextView
+        android:id="@+id/act_detials_xlv_item_tv_usename"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@id/act_detials_xlv_item_civ_head"
+        android:textColor="@color/colorFont"
+
+        android:text="Lia" />
+
+    <ImageView
+        android:id="@+id/act_detials_xlv_item_iv_sex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/act_detials_xlv_item_tv_usename"
+        android:src="@drawable/boy" />
+
+    <TextView
+        android:id="@+id/act_detials_xlv_item_tv_discuss_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/act_detials_xlv_item_tv_usename"
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@+id/act_detials_xlv_item_civ_head"
+        android:maxHeight="20dp"
+        android:maxLength="150"
+        android:textColor="@color/colorFont"
+        android:text="发布的评论"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/act_detials_xlv_item_tv_discuss_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/act_detials_xlv_item_civ_head"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="49dp"
+        android:maxHeight="20dp"
+        android:maxLength="150"
+        android:textColor="@color/colorFont"
+        android:text="时间"
+        android:textSize="12sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/act_detials_xlv_item_civ_head"
+        android:background="@color/colorLine"></View>
+</RelativeLayout>

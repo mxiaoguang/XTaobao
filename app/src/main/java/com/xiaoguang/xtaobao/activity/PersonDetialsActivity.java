@@ -76,7 +76,7 @@ public class PersonDetialsActivity extends BaseActivity implements IPersiDetials
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activtity_person_detials);
+        setContentView(R.layout.act_person_detials);
         ButterKnife.bind(this);
         new ActPersonDetialsPresenterImpl(this);
         if (BmobUser.getCurrentUser() == null) {//判断当前用户是否登陆

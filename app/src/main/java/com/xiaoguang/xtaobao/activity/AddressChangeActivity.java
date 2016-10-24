@@ -44,7 +44,7 @@ public class AddressChangeActivity extends BaseActivity implements IAddressContr
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_address);
+        setContentView(R.layout.act_address);
         ButterKnife.bind(this);
         new ActAddressPersenterImpl(this);
         presenter.initData();

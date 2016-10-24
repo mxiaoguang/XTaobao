@@ -19,6 +19,10 @@ public class User extends BmobUser {
     private String sex;
     //收货地址的集合
     private List<String> addressLists;
+    /**
+     * 收藏的商品的Id
+     */
+    private List<String> loveGroodsIds;
 
     public String getNickName() {
         return nickName;
@@ -56,5 +60,16 @@ public class User extends BmobUser {
 
     public void setAddressLists(List<String> addressLists) {
         this.addressLists = addressLists;
+    }
+
+    public List<String> getLoveGroodsIds() {
+        if (loveGroodsIds==null){
+            loveGroodsIds = new ArrayList<>();
+        }
+        return loveGroodsIds;
+    }
+
+    public void setLoveGroodsIds(List<String> loveGroodsIds) {
+        this.loveGroodsIds = loveGroodsIds;
     }
 }

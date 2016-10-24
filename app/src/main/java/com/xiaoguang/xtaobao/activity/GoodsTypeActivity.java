@@ -39,7 +39,7 @@ public class GoodsTypeActivity extends BaseActivity implements IGoodsTypeContrac
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_goods_type);
+        setContentView(R.layout.act_goods_type);
         ButterKnife.bind(this);
         new ActGoodsTypePresenterImpl(this);
         presenter.initData();

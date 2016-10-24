@@ -45,7 +45,7 @@ public class HomeActivity extends BaseActivity implements IHomeContract.IHomeVie
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.act_home);
         ButterKnife.bind(this);
         new ActHomePresenterImpl(this);
 

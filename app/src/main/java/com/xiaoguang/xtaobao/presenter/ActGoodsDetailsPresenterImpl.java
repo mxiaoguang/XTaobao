@@ -1,26 +1,45 @@
 package com.xiaoguang.xtaobao.presenter;
 
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.jude.rollviewpager.RollPagerView;
+import com.xiaoguang.xtaobao.R;
+import com.xiaoguang.xtaobao.adapter.DiscussXlvAdapter;
 import com.xiaoguang.xtaobao.adapter.GoodsRollPagerViewAdapter;
 import com.xiaoguang.xtaobao.application.CustomApplcation;
+import com.xiaoguang.xtaobao.bean.Discuss;
 import com.xiaoguang.xtaobao.bean.Goods;
-import com.xiaoguang.xtaobao.contract.IGoodsDetialsContract;
+import com.xiaoguang.xtaobao.bean.User;
+import com.xiaoguang.xtaobao.contract.IGoodsDetailsContract;
+import com.xiaoguang.xtaobao.util.LogUtils;
 import com.xiaoguang.xtaobao.widget.XListView;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.FindListener;
+import cn.bmob.v3.listener.UpdateListener;
 
 /**
  * Created by 11655 on 2016/10/23.
  */
 
-public class ActGoodsDetailsPresenterImpl implements IGoodsDetialsContract.IGoodsDetialsPresenter {
-    private IGoodsDetialsContract.IGoodsDetialsView view;
+public class ActGoodsDetailsPresenterImpl implements IGoodsDetailsContract.IGoodsDetailsPresenter {
+
+    //定义控件
     private RollPagerView mRollVpAd;
     private TextView mTvGoodsName;
     private TextView mTvGoodsMoney;
     private XListView mXlvPl;
+    private Button mBtnShoucang;
+    private IGoodsDetailsContract.IGoodsDetailsView view;
 
-    public ActGoodsDetailsPresenterImpl(IGoodsDetialsContract.IGoodsDetialsView view) {
+    public ActGoodsDetailsPresenterImpl(IGoodsDetailsContract.IGoodsDetailsView view) {
         this.view = view;
         view.setPresenter(this);
     }
@@ -28,16 +47,187 @@ public class ActGoodsDetailsPresenterImpl implements IGoodsDetialsContract.IGood
     @Override
     public void initData() {
         //获取控件
-       mRollVpAd = view.getmActGoodsDetailsRollVpAd();
-       mTvGoodsName =  view.getmActGoodsDetailsTvGoodsName();
-        mTvGoodsMoney =view.getmActGoodsDetailsTvMoney();
+        mRollVpAd = view.getmActGoodsDetailsRollVpAd();
+        mTvGoodsName = view.getmActGoodsDetailsTvGoodsName();
+        mTvGoodsMoney = view.getmActGoodsDetailsTvMoney();
         mXlvPl = view.getmActGoodsDetailsXlv();
+        mBtnShoucang = view.getmActGoodsDetailsBtnShoucang();
+
         //获取数据
-        Goods goods = (Goods) CustomApplcation.getDatas("goods",true);
+        Goods goods = (Goods) CustomApplcation.getDatas("goods", false);
         //设置数据
         mRollVpAd.setAdapter(new GoodsRollPagerViewAdapter(goods.getGoodsImgs()));
         mTvGoodsName.setText(goods.getGoodsName());
-        mTvGoodsMoney.setText("¥ "+goods.getGoodsPrice());
-        //评论暂不设置
+        mTvGoodsMoney.setText("¥ " + goods.getGoodsPrice());
+        //评论
+        //查询根据获取商品的id查询所有评论,并显示
+        queryDiscuss(goods.getObjectId());
+        //收藏与取消收藏
+        showShoucang(goods);
+
+    }
+
+    /**
+     * 查询评论并设置评论
+     *
+     * @param objectId 当前商品的id
+     */
+    private void queryDiscuss(String objectId) {
+        LogUtils.i(TAG, "查询评论的参数为" + objectId);
+        BmobQuery<Discuss> query = new BmobQuery<>();
+        //添加查询条件
+        query.addWhereEqualTo("goodsId", objectId + "");
+        query.findObjects(new FindListener<Discuss>() {
+            @Override
+            public void done(List<Discuss> list, BmobException e) {
+                if (e == null) {
+                    LogUtils.i(TAG, "评论查询成功");
+                    LogUtils.i(TAG, "评论信息为" + list.toString());
+                    //加载成功，设置适配器
+                    mXlvPl.setAdapter(new DiscussXlvAdapter(list,
+                            CustomApplcation.getInstance().context, ActGoodsDetailsPresenterImpl.this));
+                } else {
+                    view.showMsg("评论加载失败 !" + e.getLocalizedMessage());
+                    LogUtils.i(TAG, "查询数据失败" + e.toString());
+                }
+            }
+        });
+    }
+
+    /**
+     * 收藏和取消收藏
+     *
+     * @param goods
+     */
+    private void showShoucang(final Goods goods) {
+        final Holder holder = new Holder();
+
+        //首先判断用户是否登陆过
+        if (BmobUser.getCurrentUser(User.class) == null) {//没有登陆过
+            mBtnShoucang.setOnClickListener(new View.OnClickListener() {//当按钮点击时就跳转到登陆界面
+                @Override
+                public void onClick(View v) {
+                    view.jumpLogin();
+                }
+            });
+        } else {//当前用户登陆过
+            //将当前用户信息保存到内存中
+            CustomApplcation.getInstance().setCurrentUser(BmobUser.getCurrentUser(User.class));
+            //用于标记是否点击过
+            holder.flag = goods.getLoveUserIds().contains(
+                    CustomApplcation.getInstance().getCurrentUser().getObjectId());
+            //获取当前活动收藏的用户,判断是否出现过
+            LogUtils.i(TAG, "从服务器获取的点赞为" + holder.flag);
+            if (holder.flag) {//收藏了
+                //显示红色按下效果
+                mBtnShoucang.setCompoundDrawablesWithIntrinsicBounds(0,
+                        R.drawable.act_goods_details_shoucang_press, 0, 0);
+            } else {
+                //显示灰心效果
+                mBtnShoucang.setCompoundDrawablesWithIntrinsicBounds(0,
+                        R.drawable.act_goods_details_shoucang, 0, 0);
+            }
+            //为点赞按钮添加点击事件
+            mBtnShoucang.setOnClickListener(new View.OnClickListener() {
+                //用于标记是否点击过
+                @Override
+                public void onClick(final View v) {
+                    if (holder.flag) {//为true为点赞过,取消点赞
+                        LogUtils.i(TAG, "我正在执行取消点赞 ");
+                        final ArrayList<String> uids = new ArrayList<String>();
+                        uids.add(CustomApplcation.getInstance().getCurrentUser().getObjectId());
+                        goods.removeAll("loveUserIds", uids);
+                        //更新服务器数据
+                        goods.update(goods.getObjectId(), new UpdateListener() {
+                            @Override
+                            public void done(BmobException e) {
+                                if (e == null) {
+                                    LogUtils.i(TAG, "当前商品中移除用户成功");
+                                    //将user表移除
+                                    User user = new User();
+                                    ArrayList<String> goodIds = new ArrayList<String>();
+                                    goodIds.add(goods.getObjectId());
+                                    user.removeAll("loveGoodsIds", goodIds);
+                                    user.update(CustomApplcation.getInstance().getCurrentUser().getObjectId(),
+                                            new UpdateListener() {
+                                                @Override
+                                                public void done(BmobException e) {
+                                                    if (e == null) {
+                                                        LogUtils.i(TAG, "当前用户移除当前活动成功");
+                                                        view.showMsg("取消收藏成功");
+                                                        //显示灰心效果
+                                                        mBtnShoucang.setCompoundDrawablesWithIntrinsicBounds(0,
+                                                                R.drawable.act_goods_details_shoucang, 0, 0);
+                                                    } else {
+                                                        LogUtils.i(TAG, "当前用户移除当前商品失败" + e.toString());
+                                                        view.showMsg("取消收藏失败");
+                                                    }
+                                                }
+                                            });
+                                } else {
+                                    LogUtils.i(TAG, "当前商品中移除用户成功" + e.toString());
+                                    view.showMsg("取消点赞失败，原因是" + e.getLocalizedMessage());
+                                }
+                            }
+                        });
+                    } else {//点赞
+                        LogUtils.i(TAG, "我正在进行点赞操作 ");
+                        //将当前用户Id保存
+                        goods.add("loveUserIds", CustomApplcation.getInstance().getCurrentUser().getObjectId());
+                        //更新数据到服务器
+                        goods.update(goods.getObjectId(), new UpdateListener() {
+                            @Override
+                            public void done(BmobException e) {
+                                if (e == null) {
+                                    LogUtils.i(TAG, "当前商品添加用户成功");
+                                    //向user表添加活动
+                                    User user = new User();
+                                    //将当前的活动的Id添加到用户表中
+                                    user.add("loveGoodsIds", goods.getObjectId());
+                                    user.update(CustomApplcation.getInstance().getCurrentUser().getObjectId(),
+                                            new UpdateListener() {
+                                                @Override
+                                                public void done(BmobException e) {
+                                                    if (e == null) {
+                                                        LogUtils.i(TAG, "当前用户添加当前活动成功");
+                                                        view.showMsg("收藏成功!");
+                                                        //设置图片
+                                                        //显示灰心效果
+                                                        mBtnShoucang.setCompoundDrawablesWithIntrinsicBounds(0,
+                                                                R.drawable.act_goods_details_shoucang_press, 0, 0);
+                                                    } else {
+                                                        LogUtils.i(TAG, "当前用户添加当前活动失败" + e.toString());
+                                                        view.showMsg("收藏失败!");
+                                                    }
+                                                }
+                                            });
+                                } else {
+                                    LogUtils.i(TAG, "当前商品添加当前用户失败，原因 " + e.toString());
+                                    view.showMsg("收藏失败!");
+                                }
+                            }
+                        });
+                    }
+                    holder.flag = !holder.flag;
+                }
+            });
+        }
+    }
+
+    @Override
+    public void queryUserSuccess() {
+        LogUtils.i(TAG, "查询数据成功");
+    }
+
+    @Override
+    public void queryUseError(BmobException e) {
+        LogUtils.i(TAG, "查询数据失败" + e.toString());
+    }
+
+    class Holder {
+        /**
+         * 用于标记当前活动的状态，false 为没有点赞过，true 为点赞过，默认为false
+         */
+        boolean flag = false;
     }
 }
