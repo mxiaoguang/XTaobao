@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?><!--显示网页布局-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <!--导航栏结束-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorBackground"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/act_webview_iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:clickable="true"
+            android:src="@drawable/frag_personal_left" />
+
+        <TextView
+            android:id="@+id/act_webview_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="加载中"
+            android:textColor="@color/colorFont"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/act_webview_iv_goto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:clickable="true"
+            android:src="@drawable/frag_home_right" />
+    </LinearLayout>
+    <!--导航栏结束-->
+    <WebView
+        android:id="@+id/act_webview_wv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></WebView>
+</LinearLayout>

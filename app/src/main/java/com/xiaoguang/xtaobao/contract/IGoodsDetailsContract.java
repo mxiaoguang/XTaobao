@@ -68,5 +68,10 @@ public class IGoodsDetailsContract {
          * @param e
          */
         void queryUseError(BmobException e);
+
+        /**
+         * 加入购物车
+         */
+        void joinShopCar();
     }
 }

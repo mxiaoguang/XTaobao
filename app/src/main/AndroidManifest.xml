@@ -39,6 +39,7 @@
         <activity android:name=".activity.GoodsResultActivity"/>
         <activity android:name=".activity.GoodsDetailsActivity"/>
         <activity android:name=".activity.OrdersActivity"/>
+        <activity android:name=".activity.WebViewActivity"/>
     </application>
 
 </manifest>

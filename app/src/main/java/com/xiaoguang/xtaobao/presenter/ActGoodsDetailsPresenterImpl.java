@@ -11,6 +11,7 @@ import com.xiaoguang.xtaobao.adapter.GoodsRollPagerViewAdapter;
 import com.xiaoguang.xtaobao.application.CustomApplcation;
 import com.xiaoguang.xtaobao.bean.Discuss;
 import com.xiaoguang.xtaobao.bean.Goods;
+import com.xiaoguang.xtaobao.bean.ShopCar;
 import com.xiaoguang.xtaobao.bean.User;
 import com.xiaoguang.xtaobao.contract.IGoodsDetailsContract;
 import com.xiaoguang.xtaobao.util.LogUtils;
@@ -23,6 +24,7 @@ import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
+import cn.bmob.v3.listener.SaveListener;
 import cn.bmob.v3.listener.UpdateListener;
 
 /**
@@ -38,6 +40,8 @@ public class ActGoodsDetailsPresenterImpl implements IGoodsDetailsContract.IGood
     private XListView mXlvPl;
     private Button mBtnShoucang;
     private IGoodsDetailsContract.IGoodsDetailsView view;
+    //商品
+    private Goods goods;
 
     public ActGoodsDetailsPresenterImpl(IGoodsDetailsContract.IGoodsDetailsView view) {
         this.view = view;
@@ -222,6 +226,32 @@ public class ActGoodsDetailsPresenterImpl implements IGoodsDetailsContract.IGood
     @Override
     public void queryUseError(BmobException e) {
         LogUtils.i(TAG, "查询数据失败" + e.toString());
+    }
+
+    @Override
+    public void joinShopCar() {
+        view.showLoadingDialog("","数据加载中...",false);
+        //获取传递过来的商品信息
+        goods = (Goods) CustomApplcation.getDatas("goods",false);
+        //将商品信息添加到购物车
+        ShopCar shopCar = new ShopCar();
+        shopCar.setGoodId(goods.getObjectId());
+        //设置数量默认为1
+        shopCar.setCount(1);
+        shopCar.setUserId(CustomApplcation.getInstance().getCurrentUser().getObjectId());
+        shopCar.save(new SaveListener<String>() {
+            @Override
+            public void done(String objectId, BmobException e) {
+                view.canelLoadingDialog();
+                if (e == null){
+                    view.showMsg("加入购物车成功!");
+                    LogUtils.i(TAG,"加入购车功能!购物车编号为:"+objectId);
+                }else {
+                    view.showMsg("加入购物车失败!"+e.getLocalizedMessage());
+                    LogUtils.i(TAG,"加入购物车失败"+e.toString());
+                }
+            }
+        });
     }
 
     class Holder {

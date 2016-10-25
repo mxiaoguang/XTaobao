@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+    <CheckBox
+        android:id="@+id/frag_shop_car_xlv_item_cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:textColor="@color/colorFont"
+        android:layout_marginLeft="10dp"
+        />
+    <ImageView
+        android:id="@+id/frag_shop_car_xlv_item_good_img"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/bookbag"/>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="2"
+        android:layout_marginLeft="5dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/frag_shop_car_xlv_item_good_name"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="ssssssssssssssssssssssssssss"
+            android:textSize="18sp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/colorFont"/>
+        <TextView
+            android:id="@+id/frag_shop_car_xlv_item_good_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="¥ 1299.00"
+            android:textColor="@color/colorSelectedIcon"
+            android:textSize="18sp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:textSize="18sp"
+            android:textColor="@color/colorFont"
+            android:text="X"/>
+        <TextView
+            android:id="@+id/frag_shop_car_xlv_item_good_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="50dp"
+            android:textColor="@color/colorFont"
+            android:textSize="18sp"
+            android:text="1"/>
+    </LinearLayout>
+
+</LinearLayout>

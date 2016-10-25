@@ -110,7 +110,7 @@ public class GoodsDetailsActivity extends BaseActivity implements IGoodsDetailsC
                 break;
             case R.id.act_goods_details_btn_jiaru://加入购物车
                 if (isLogin()){
-
+                    presenter.joinShopCar();
                 }else {
                     jumpLogin();
                 }

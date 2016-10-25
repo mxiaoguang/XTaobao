@@ -140,7 +140,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="52dp"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true">
 
         <Button
             android:id="@+id/act_goods_details_btn_kefu"

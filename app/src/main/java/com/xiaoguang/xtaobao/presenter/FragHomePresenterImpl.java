@@ -46,6 +46,11 @@ public class FragHomePresenterImpl implements IFragHomeContract.IFragHomePresent
     private String contentText2[];
     private AdRollPagerViewAdapter adapter;
     private final IFragHomeContract.IFragHomeView view;
+    private GridView gridViewContent;
+    private RollPagerView rollPagerViewAd;
+    private GridView gridViewSort;
+    private MarqueeView marqueeViewTop;
+    private EditText editText;
 
     public FragHomePresenterImpl(IFragHomeContract.IFragHomeView view) {
         this.view = view;
@@ -55,15 +60,15 @@ public class FragHomePresenterImpl implements IFragHomeContract.IFragHomePresent
     @Override
     public void initData() {
         //获取显示广告的RollPagerView对象
-        RollPagerView rollPagerViewAd = view.getmActHomeVpAd();
+        rollPagerViewAd = view.getmActHomeVpAd();
         //获取中间显示各个小控件的GridView
-        GridView gridViewSort = view.getGridViewSort();
+        gridViewSort = view.getGridViewSort();
         //获取显示资讯头条的控件
-        MarqueeView marqueeViewTop = view.getMarqueeViewTop();
+        marqueeViewTop = view.getMarqueeViewTop();
         //获取下部分的GridView空间
-        GridView gridViewContent = view.getGridViewContent();
+        gridViewContent = view.getGridViewContent();
         //获取搜索框
-        final EditText editText = view.getmFragHomeEtSearch();
+        editText = view.getmFragHomeEtSearch();
         //初始化数据源
         imgs = new ArrayList<>();
         //添加数据
@@ -104,11 +109,46 @@ public class FragHomePresenterImpl implements IFragHomeContract.IFragHomePresent
         gridViewSort.setAdapter(new SortGridViewAdapter(CustomApplcation.getInstance().context, sortImgs, sortStrs, R.layout.frag_home_gv_sort_item));
         gridViewContent.setAdapter(new ContentGridViewAdapter(CustomApplcation.getInstance().context,
                 contentIcoImgs, contentImgs, contentText, contentText2));
+        //初始化监听
+        initEvent();
+    }
+
+    /**
+     * 初始化监听事件
+     */
+    private void initEvent() {
         //为中间小控件GridView设置监听事件
         gridViewSort.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
+                    case 0:
+                        FragHomePresenterImpl.this.view.jumpActivity(0, "");
+                        break;
+                    case 1:
+                        FragHomePresenterImpl.this.view.jumpActivity(1, "");
+                        break;
+                    case 2:
+                        FragHomePresenterImpl.this.view.jumpActivity(2, "");
+                        break;
+                    case 3:
+                        FragHomePresenterImpl.this.view.jumpActivity(3, "");
+                        break;
+                    case 4:
+                        FragHomePresenterImpl.this.view.jumpActivity(4, "");
+                        break;
+                    case 5:
+                        FragHomePresenterImpl.this.view.jumpActivity(5, "");
+                        break;
+                    case 6:
+                        FragHomePresenterImpl.this.view.jumpActivity(6, "");
+                        break;
+                    case 7:
+                        FragHomePresenterImpl.this.view.jumpActivity(7, "");
+                        break;
+                    case 8://跳转到webview,暂时不传递数据，仅进行数据测试
+                        FragHomePresenterImpl.this.view.jumpActivity(8, "");
+                        break;
                     case 9://分类
                         FragHomePresenterImpl.this.view.jumpActivity(9, "");
                         break;
@@ -145,7 +185,7 @@ public class FragHomePresenterImpl implements IFragHomeContract.IFragHomePresent
                 view.canelLoadingDialog();
                 if (e == null) {
                     //暂时将数据固定，查询一类的数据
-                    view.jumpActivity(10,"HBMlIIIw");
+                    view.jumpActivity(10, "HBMlIIIw");
                 } else {
                     view.showMsg("搜索失败....");
                 }

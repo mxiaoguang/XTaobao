@@ -16,7 +16,9 @@ import com.sunfusheng.marqueeview.MarqueeView;
 import com.xiaoguang.xtaobao.R;
 import com.xiaoguang.xtaobao.activity.GoodsResultActivity;
 import com.xiaoguang.xtaobao.activity.GoodsTypeActivity;
+import com.xiaoguang.xtaobao.activity.WebViewActivity;
 import com.xiaoguang.xtaobao.base.BaseFragment;
+import com.xiaoguang.xtaobao.config.Contracts;
 import com.xiaoguang.xtaobao.contract.IFragHomeContract;
 import com.xiaoguang.xtaobao.presenter.FragHomePresenterImpl;
 import com.xiaoguang.xtaobao.util.ToastFactory;
@@ -70,7 +72,7 @@ public class HomeFragment extends BaseFragment implements IFragHomeContract.IFra
 
     @Override
     public void showMsg(String msg) {
-        ToastFactory.getToast(getContext(),msg);
+        ToastFactory.getToast(getContext(), msg);
     }
 
     @Override
@@ -104,16 +106,53 @@ public class HomeFragment extends BaseFragment implements IFragHomeContract.IFra
     }
 
     @Override
-    public void jumpActivity(int type,String datas) {
+    public void jumpActivity(int type, String datas) {
         Intent intent = null;
-        switch (type){
+        switch (type) {
+            case 0:
+                intent = new Intent(getContext(), WebViewActivity.class);
+                intent.putExtra("URL", Contracts.TIANMAO_URL);
+                break;
+            case 1:
+                intent = new Intent(getContext(), WebViewActivity.class);
+                intent.putExtra("URL", Contracts.JUHUASUAN_URL);
+                break;
+            case 2:
+                intent = new Intent(getContext(), WebViewActivity.class);
+                intent.putExtra("URL", Contracts.TIANMAO_GUOJI_URL);
+                break;
+            case 3:
+                intent = new Intent(getContext(), WebViewActivity.class);
+                intent.putExtra("URL", Contracts.WAIMAI);
+                break;
+            case 4:
+                intent = new Intent(getContext(), WebViewActivity.class);
+                intent.putExtra("URL", Contracts.TIANMAO_SUPERMARKET);
+                break;
+            case 5:
+                intent = new Intent(getContext(), WebViewActivity.class);
+                intent.putExtra("URL", Contracts.CHONGZHI_CENTER);
+                break;
+            case 6:
+                intent = new Intent(getContext(), WebViewActivity.class);
+                intent.putExtra("URL", Contracts.ALI_TRAVEL);
+                break;
+            case 7:
+                intent = new Intent(getContext(), WebViewActivity.class);
+                intent.putExtra("URL", Contracts.LING_MONEY);
+
+                break;
+            case 8:
+                intent = new Intent(getContext(), WebViewActivity.class);
+                intent.putExtra("URL", Contracts.DAO_JIA);
+                break;
             case 9:
-              intent = new Intent(getContext(), GoodsTypeActivity.class);
+                intent = new Intent(getContext(), GoodsTypeActivity.class);
                 break;
             case 10://搜索框
                 intent = new Intent(getContext(), GoodsResultActivity.class);
                 //将数据传递到下一个activity
-                intent.putExtra("datas",datas);
+                intent.putExtra("datas", datas);
         }
         startActivity(intent);
     }
@@ -125,9 +164,10 @@ public class HomeFragment extends BaseFragment implements IFragHomeContract.IFra
 
     /**
      * 点击事件
+     *
      * @param view
      */
-    @OnClick({R.id.act_home_btn_scan, R.id.act_home_btn_msg,R.id.frag_home_ln_top})
+    @OnClick({R.id.act_home_btn_scan, R.id.act_home_btn_msg, R.id.frag_home_ln_top})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.act_home_btn_scan:
@@ -138,6 +178,7 @@ public class HomeFragment extends BaseFragment implements IFragHomeContract.IFra
                 break;
         }
     }
+
     @Override
     public EditText getmFragHomeEtSearch() {
         return mFragHomeEtSearch;
