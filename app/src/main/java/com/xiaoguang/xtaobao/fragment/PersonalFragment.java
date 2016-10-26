@@ -15,6 +15,8 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import com.xiaoguang.xtaobao.R;
 import com.xiaoguang.xtaobao.activity.LoginActivity;
+import com.xiaoguang.xtaobao.activity.LoveGoodsActivity;
+import com.xiaoguang.xtaobao.activity.OrdersResultActivity;
 import com.xiaoguang.xtaobao.activity.PersonDetialsActivity;
 import com.xiaoguang.xtaobao.activity.SettingActivtity;
 import com.xiaoguang.xtaobao.application.CustomApplcation;
@@ -22,6 +24,7 @@ import com.xiaoguang.xtaobao.base.BaseFragment;
 import com.xiaoguang.xtaobao.config.Contracts;
 import com.xiaoguang.xtaobao.contract.IFragPersonalContract;
 import com.xiaoguang.xtaobao.presenter.FragPersonalPresenterImpl;
+import com.xiaoguang.xtaobao.util.ToastFactory;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -126,21 +129,28 @@ public class PersonalFragment extends BaseFragment implements IFragPersonalContr
                 startActivity(new Intent(getContext(), PersonDetialsActivity.class));
                 break;
             case R.id.frag_personal_rl_show_dingdan:
+                presenter.queryOrders(-1);
                 break;
             case R.id.frag_personal_btn_pay:
+                presenter.queryOrders(0);
                 break;
             case R.id.frag_personal_btn_daifahuo:
+                presenter.queryOrders(1);
                 break;
             case R.id.frag_personal_btn_daishouhuo:
+                presenter.queryOrders(2);
                 break;
             case R.id.frag_home_personal_daipingjia:
+                presenter.queryOrders(3);
                 break;
             case R.id.frag_personal_btn_tuikuan:
+                presenter.queryOrders(4);
                 break;
             case R.id.frag_personal_rl_show_jianzhi:
                 break;
         }
     }
+
 
     @Override
     public GridView getmFragPersonalGvBottom() {
@@ -150,6 +160,33 @@ public class PersonalFragment extends BaseFragment implements IFragPersonalContr
     @Override
     public GridView getmFragPersonalGvCenter() {
         return mFragPersonalGvCenter;
+    }
+
+    @Override
+    public void showMsg(String msg) {
+        ToastFactory.getToast(getContext(),msg).show();
+    }
+
+    @Override
+    public void showLoadingDialog(String title, String msg, boolean flag) {
+        super.showProcessDialog(title, msg, flag);
+    }
+
+    @Override
+    public void canelLoadingDialog() {
+        super.dismissProcessDialog();
+    }
+
+    @Override
+    public void jumpActivity(int type) {
+        switch (type){
+            case 1://跳转到我的订单页面
+                startActivity(new Intent(getContext(), OrdersResultActivity.class));
+                break;
+            case 2://跳转到收藏页面
+                startActivity(new Intent(getContext(), LoveGoodsActivity.class));
+                break;
+        }
     }
 
     /**

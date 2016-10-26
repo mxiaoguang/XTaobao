@@ -150,7 +150,7 @@ public class FragShopCarPresenterImpl implements IFragShopCarContract.IFragShopC
         //提交订单
         //l
         //获取数据
-        double sum = Double.parseDouble(mTvMoney.getText().toString());
+        final double sum = Double.parseDouble(mTvMoney.getText().toString());
         //设置数据
         Orders orders = new Orders();
         orders.addAll("goodIds",listGoodsIds);
@@ -161,7 +161,7 @@ public class FragShopCarPresenterImpl implements IFragShopCarContract.IFragShopC
         orders.setGoodsCount(1);
         orders.save(new SaveListener<String>() {
             @Override
-            public void done(String objectId, BmobException e) {
+            public void done(final String objectId, BmobException e) {
                 if (e == null){
                     LogUtils.i(TAG,"下单成功");
                     //删除已经购买的购物车中的数据
@@ -179,8 +179,8 @@ public class FragShopCarPresenterImpl implements IFragShopCarContract.IFragShopC
                             view.canelLoadingDialog();
                             if (e==null){
                                 //跳转到支付页面
-                                view.showMsg("下单成功!");
-                                initData();
+                                view.showMsg("下单成功,将跳转到支付页面");
+                                view.jumpActivity(objectId,sum);
                                 LogUtils.i(TAG,"删除数据成功");
                             }else {
                                 LogUtils.i(TAG,"删除数据成功"+e.toString());

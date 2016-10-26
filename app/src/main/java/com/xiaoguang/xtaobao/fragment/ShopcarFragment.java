@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.baoyz.swipemenulistview.SwipeMenuListView;
 import com.xiaoguang.xtaobao.R;
 import com.xiaoguang.xtaobao.activity.LoginActivity;
+import com.xiaoguang.xtaobao.activity.PayActivity;
 import com.xiaoguang.xtaobao.base.BaseFragment;
 import com.xiaoguang.xtaobao.contract.IFragShopCarContract;
 import com.xiaoguang.xtaobao.presenter.FragShopCarPresenterImpl;
@@ -133,7 +134,13 @@ public class ShopcarFragment extends BaseFragment implements IFragShopCarContrac
     }
 
     @Override
-    public void jumpActivity() {
-
+    public void jumpActivity(String orderId, double sumMoney) {
+        //跳转到支付
+        Intent intent = new Intent(getContext(), PayActivity.class);
+        //将订单编号和订单金额出传递到下一个activity
+        intent.putExtra("orderId",orderId);
+        intent.putExtra("sumMoney",sumMoney);
+        startActivity(intent);
     }
+
 }

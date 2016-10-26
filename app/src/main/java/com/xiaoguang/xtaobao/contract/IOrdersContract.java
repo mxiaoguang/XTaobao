@@ -35,9 +35,10 @@ public class IOrdersContract {
 
        /**
         * activity的跳转
+        * @param objectId  订单号
+        * @param sum  订单金额
         */
-       void jumpActivity();
-
+       void jumpActivity(String objectId, double sum);
        /**
         * 将数据显示到控件上
         * @param goods
@@ -49,6 +50,7 @@ public class IOrdersContract {
        TextView getmActOrdersTvNumMoney();
 
        TextView getmActOrderTvGoodsMoney();
+
    }
     public interface IOrdersPresenter extends BasePresenter<IOrdersView>{
 

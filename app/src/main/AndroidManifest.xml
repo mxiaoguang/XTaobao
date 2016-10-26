@@ -40,6 +40,9 @@
         <activity android:name=".activity.GoodsDetailsActivity"/>
         <activity android:name=".activity.OrdersActivity"/>
         <activity android:name=".activity.WebViewActivity"/>
+        <activity android:name=".activity.PayActivity"/>
+        <activity android:name=".activity.OrdersResultActivity"/>
+        <activity android:name=".activity.LoveGoodsActivity"/>
     </application>
 
 </manifest>

@@ -10,13 +10,8 @@ import com.xiaoguang.xtaobao.base.BaseView;
  * Created by 11655 on 2016/10/18.
  */
 
-public class IFragPersonalContract {
-   public interface IFragPersonalView extends BaseView<IFragPersonalPresenter>{
-
-       GridView getmFragPersonalGvBottom();
-
-       GridView getmFragPersonalGvCenter();
-
+public class ILoveGoodsContract {
+   public interface ILoveGoodsView extends BaseView<ILoveGoodsPresenter>{
        /**
         * Toast数据
         * @param msg
@@ -37,15 +32,13 @@ public class IFragPersonalContract {
        void canelLoadingDialog();
 
        /**
-        * activity的跳转  1 为跳转到订单页面  2 为跳转到收藏界面
+        * activity的跳转
         */
-       void jumpActivity(int type);
-   }
-    public interface IFragPersonalPresenter extends BasePresenter<IFragPersonalView>{
+       void jumpActivity();
 
-        /**
-         * @param type -1为查询全部订单 0 待付款 1 待发货 2 待收货 3 待评价 4查询退款
-         */
-        void queryOrders(int type);
+       GridView getmActGoodsResultGv();
+   }
+    public interface ILoveGoodsPresenter extends BasePresenter<ILoveGoodsView>{
+
     }
 }

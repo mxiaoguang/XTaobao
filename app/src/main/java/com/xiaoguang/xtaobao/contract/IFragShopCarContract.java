@@ -42,8 +42,10 @@ public class IFragShopCarContract {
 
        /**
         * activity的跳转
+        * @param objectId  订单号
+        * @param sum  订单金额
         */
-       void jumpActivity();
+       void jumpActivity(String objectId, double sum);
    }
     public interface IFragShopCarPresenter extends BasePresenter<IFragShopCarView>{
         /**

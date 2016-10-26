@@ -20,10 +20,13 @@ import cn.bmob.v3.BmobUser;
  */
 
 public class BaseActivity extends FragmentActivity {
+
     //声明一个构建着对象，用于创建警告对话框
     private AlertDialog.Builder builder;
     //用于创建一个进度条对话框
     private ProgressDialog dialog;
+    //用于打印log
+    public final String TAG = "myTag";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

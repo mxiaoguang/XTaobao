@@ -72,4 +72,24 @@ public interface Contracts {
 
     //图库选择图片的action
     String CHOOSER_PIC_ACTION = Intent.ACTION_PICK;
+
+    /**
+     * 此为支付插件的官方最新版本号,请在更新时留意更新说明
+     */
+    int PLUGINVERSION = 7;
+    /**
+     * 响应失败
+     */
+    int RESULT_FAIL = 404 ;
+
+    /**
+     * 响应成功
+     */
+    int RESULT_SUCCESS = 500 ;
+
+    /**
+     * 响应的其他情况
+     */
+    public class RESULT_UN {
+    }
 }

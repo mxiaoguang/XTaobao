@@ -1,5 +1,6 @@
 package com.xiaoguang.xtaobao.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -152,8 +153,13 @@ public class OrdersActivity extends BaseActivity implements IOrdersContract.IOrd
         mActOrdersTvNumMoney.setText("¥ "+goods.getGoodsPrice());
     }
     @Override
-    public void jumpActivity() {
-
+    public void jumpActivity(String orderId,double sumMoney) {
+        //跳转到支付
+        Intent intent = new Intent(this,PayActivity.class);
+        //将订单编号和订单金额出传递到下一个activity
+        intent.putExtra("orderId",orderId);
+        intent.putExtra("sumMoney",sumMoney);
+        startActivity(intent);
     }
     @Override
     public void showMsg(String msg) {

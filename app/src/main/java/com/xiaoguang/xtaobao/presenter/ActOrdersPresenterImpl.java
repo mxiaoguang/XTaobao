@@ -79,7 +79,7 @@ public class ActOrdersPresenterImpl implements IOrdersContract.IOrdersPresenter 
         double dSumMoney = Double.parseDouble(sumMoney);
         int count = Integer.parseInt(countStr);
         //设置需要小数点两位数
-        double sum = (double)Math.round(dSumMoney*100)/100;
+        final double sum = (double)Math.round(dSumMoney*100)/100;
         //设置数据
         Orders orders = new Orders();
         orders.add("goodIds",goods.getObjectId());
@@ -91,8 +91,9 @@ public class ActOrdersPresenterImpl implements IOrdersContract.IOrdersPresenter 
             @Override
             public void done(String objectId, BmobException e) {
                 if (e == null){
-                    view.showMsg("下单成功!");
-                    //将直接跳转到支付页面，暂时未做
+                    view.showMsg("下单成功,将要跳转到支付界面");
+                    //将直接跳转到支付页面,将订单号和金额传递到支付activity
+                    view.jumpActivity(objectId,sum);
                     LogUtils.i(TAG,"下单成功!订单编号为:"+objectId);
                 }else {
                     view.showMsg("下单失败!"+e.getLocalizedMessage());

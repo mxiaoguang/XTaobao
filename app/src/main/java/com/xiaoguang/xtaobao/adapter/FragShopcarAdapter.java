@@ -37,6 +37,7 @@ public class FragShopcarAdapter extends BaseAdapter {
     // 用来控制CheckBox的选中状况
     private static HashMap<Integer, Boolean> isSelected;
     IFragShopCarContract.IFragShopCarPresenter presenter;
+
     private Context context;
 
     public FragShopcarAdapter(Context context, List<ShopCar> shopCars, IFragShopCarContract.IFragShopCarPresenter presenter) {

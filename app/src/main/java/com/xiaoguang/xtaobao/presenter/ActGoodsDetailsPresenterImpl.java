@@ -140,9 +140,11 @@ public class ActGoodsDetailsPresenterImpl implements IGoodsDetailsContract.IGood
                         LogUtils.i(TAG, "我正在执行取消点赞 ");
                         final ArrayList<String> uids = new ArrayList<String>();
                         uids.add(CustomApplcation.getInstance().getCurrentUser().getObjectId());
-                        goods.removeAll("loveUserIds", uids);
+                        Goods newGoods = new Goods();
+                        newGoods.removeAll("loveUserIds", uids);
                         //更新服务器数据
-                        goods.update(goods.getObjectId(), new UpdateListener() {
+                        newGoods.update(goods.getObjectId(),
+                                new UpdateListener() {
                             @Override
                             public void done(BmobException e) {
                                 if (e == null) {
@@ -177,9 +179,11 @@ public class ActGoodsDetailsPresenterImpl implements IGoodsDetailsContract.IGood
                     } else {//点赞
                         LogUtils.i(TAG, "我正在进行点赞操作 ");
                         //将当前用户Id保存
-                        goods.add("loveUserIds", CustomApplcation.getInstance().getCurrentUser().getObjectId());
+                        Goods newGoods = new Goods();
+                        newGoods.add("loveUserIds", CustomApplcation.getInstance().getCurrentUser().getObjectId());
+
                         //更新数据到服务器
-                        goods.update(goods.getObjectId(), new UpdateListener() {
+                        newGoods.update(goods.getObjectId(), new UpdateListener() {
                             @Override
                             public void done(BmobException e) {
                                 if (e == null) {

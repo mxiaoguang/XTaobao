@@ -22,7 +22,7 @@ public class User extends BmobUser {
     /**
      * 收藏的商品的Id
      */
-    private List<String> loveGroodsIds;
+    private List<String> loveGoodsIds;
 
     public String getNickName() {
         return nickName;
@@ -62,14 +62,14 @@ public class User extends BmobUser {
         this.addressLists = addressLists;
     }
 
-    public List<String> getLoveGroodsIds() {
-        if (loveGroodsIds==null){
-            loveGroodsIds = new ArrayList<>();
+    public List<String> getLoveGoodsIds() {
+        if (loveGoodsIds ==null){
+            loveGoodsIds = new ArrayList<>();
         }
-        return loveGroodsIds;
+        return loveGoodsIds;
     }
 
-    public void setLoveGroodsIds(List<String> loveGroodsIds) {
-        this.loveGroodsIds = loveGroodsIds;
+    public void setLoveGoodsIds(List<String> loveGoodsIds) {
+        this.loveGoodsIds = loveGoodsIds;
     }
 }
