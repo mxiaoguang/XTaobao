@@ -16,7 +16,8 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_margin="5dp"
-        android:background="@drawable/bookbag"/>
+        android:src="@drawable/bookbag"
+        />
     <LinearLayout
         android:layout_width="0dp"
         android:layout_weight="2"

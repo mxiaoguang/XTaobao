@@ -4,12 +4,27 @@
      一款基于MVP(Model-View-Presenter)设计模式开发的Adroid APP项目
    
 ***
+###页面截图
 
+![image](https://github.com/mmengchen/XTaobao/raw/master/screenshots/index.png)
+![image](https://github.com/mmengchen/XTaobao/raw/master/screenshots/home.png)
+![image](https://github.com/mmengchen/XTaobao/raw/master/screenshots/goods_type.png)
+![image](https://github.com/mmengchen/XTaobao/raw/master/screenshots/goods.png)
+![image](https://github.com/mmengchen/XTaobao/raw/master/screenshots/goods.details.png)
+![image](https://github.com/mmengchen/XTaobao/raw/master/screenshots/pay.png)
+![image](https://github.com/mmengchen/XTaobao/raw/master/screenshots/orders.png)
+![image](https://github.com/mmengchen/XTaobao/raw/master/screenshots/orders2.png)
+![image](https://github.com/mmengchen/XTaobao/raw/master/screenshots/personal.png)
+![image](https://github.com/mmengchen/XTaobao/raw/master/screenshots/personal_details.png)
+![image](https://github.com/mmengchen/XTaobao/raw/master/screenshots/setting.png)
+![image](https://github.com/mmengchen/XTaobao/raw/master/screenshots/shopCar.png)
 ###功能测试
 
    
 ***  
-###已经实现的功能
+###基本功能
+             
+- 2016/10/28 添加微信分享功能
 
 - 2016/10/28 添加忘记密码功能、完善用户评价系统、以及完善订单页面按钮功能及显示
 
@@ -32,39 +47,26 @@
 - 2016/10/18 构建基本MVP框架
 
 ***
-###需要实现的功能
 
-搜索查询显示、和商品详情显示呢
-- 个人中心
-     添加头像、和收货地址的修改和新增(已经实现)
-- 商城功能  
-  
-***
-###已知Bug
--  当用户未登录时,点击购物车,登陆之后,程序闪退
-   出现问题 :NullPointerException
-   解决方案: 使用Fragment的延时加载(懒加载)实现对数据的加载
-***
 ###开发过程中遇到的问题(可能导致程序无法运行的bug)及解决方案
 
-- 
+- 当用户未登录时,点击购物车,登陆之后,程序闪退
+     出现问题 :NullPointerException
+     解决方案: 使用Fragment的延时加载(懒加载)实现对数据的加载
   
 - 拍照时无法进行图片的裁剪（不断加载）
  
        解决步骤如下：<br>
     1. Activity跳转时图库时的Intent如下 
-           `Intent takePhotoIntent = new Intent( "android.media.action.IMAGE_CAPTURE");
+           ````Intent takePhotoIntent = new Intent( "android.media.action.IMAGE_CAPTURE");
             takePhotoIntent.putExtra(
                     MediaStore.EXTRA_OUTPUT,
-                    imageUri);`
+                    imageUri);````
     2. 在onActivityResult()方法中调用P层进行处理，相关代码如下
-
-        `//获取图片的路径
-       String uri = Environment.getExternalStorageDirectory() + "/icoImage.jpg";
+            ````String uri = Environment.getExternalStorageDirectory() + "/icoImage.jpg";
         if(!allSelectedPicture.contains(uri)){
             allSelectedPicture.add(uri);
-        }`
-        在
+        }````
      3. ViewPager和Fragment结合使用,Fragment出现被预计载的情况
       [解决方案](http://blog.csdn.net/m_chuang/article/details/52945361)
         

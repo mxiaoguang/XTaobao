@@ -49,10 +49,10 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.5.2'
     //Bmob支付服务
     compile files('libs/bmobpay.jar')
+    //弹出式菜单
     compile project(':iOS_Dialog_Library')
     //拍照arr支持
     compile(name: 'kalelibrary', ext: 'aar')
     //侧滑删除
     compile 'com.baoyz.swipemenulistview:library:1.3.0'
-    compile files('libs/weixinsdk.jar')
 }

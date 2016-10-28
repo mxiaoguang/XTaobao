@@ -63,7 +63,7 @@ public class ShopcarFragment extends BaseFragment implements IFragShopCarContrac
         }
         if (!isLogin()) {//判断是否登陆
             startActivityForResult(new Intent(getContext(), LoginActivity.class), 600);
-        }else{//已经登陆,查询并加载数据
+        }else if(isPrepared ){//已经登陆,查询并加载数据
             presenter.queryDatasFromServer();
         }
     }

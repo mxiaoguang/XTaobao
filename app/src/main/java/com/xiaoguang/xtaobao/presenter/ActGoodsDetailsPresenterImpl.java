@@ -1,7 +1,5 @@
 package com.xiaoguang.xtaobao.presenter;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -11,8 +9,7 @@ import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.tencent.mm.sdk.openapi.SendMessageToWX;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
 import com.tencent.mm.sdk.openapi.WXMediaMessage;
-import com.tencent.mm.sdk.openapi.WXWebpageObject;
-import com.tencent.mm.sdk.platformtools.Util;
+import com.tencent.mm.sdk.openapi.WXTextObject;
 import com.xiaoguang.xtaobao.R;
 import com.xiaoguang.xtaobao.adapter.DiscussXlvAdapter;
 import com.xiaoguang.xtaobao.adapter.GoodsRollPagerViewAdapter;
@@ -51,6 +48,7 @@ public class ActGoodsDetailsPresenterImpl implements IGoodsDetailsContract.IGood
     private IGoodsDetailsContract.IGoodsDetailsView view;
     //商品
     private Goods goods;
+    //微信Api
     private IWXAPI api;
 
     public ActGoodsDetailsPresenterImpl(IGoodsDetailsContract.IGoodsDetailsView view) {
@@ -60,6 +58,7 @@ public class ActGoodsDetailsPresenterImpl implements IGoodsDetailsContract.IGood
 
     @Override
     public void initData() {
+
         //获取控件
         mRollVpAd = view.getmActGoodsDetailsRollVpAd();
         mTvGoodsName = view.getmActGoodsDetailsTvGoodsName();
@@ -68,7 +67,7 @@ public class ActGoodsDetailsPresenterImpl implements IGoodsDetailsContract.IGood
         mBtnShoucang = view.getmActGoodsDetailsBtnShoucang();
 
         //获取数据
-        Goods goods = (Goods) CustomApplcation.getDatas("goods", false);
+        goods = (Goods) CustomApplcation.getDatas("goods", false);
         /*设置数据*/
         mRollVpAd.setAdapter(new GoodsRollPagerViewAdapter(goods.getGoodsImgs()));
         mTvGoodsName.setText(goods.getGoodsName());
@@ -79,6 +78,12 @@ public class ActGoodsDetailsPresenterImpl implements IGoodsDetailsContract.IGood
         queryDiscuss(goods.getObjectId());
         //收藏与取消收藏
         showShoucang(goods);
+
+        /*初始化微信分享功能*/
+        // 通过WXAPIFactory工厂，获取IWXAPI的实例
+        api = WXAPIFactory.createWXAPI(CustomApplcation.getInstance().context, Contracts.WX_APP_ID, false);
+        // 将该app注册到微信
+        api.registerApp(Contracts.WX_APP_ID );
 
     }
 
@@ -272,23 +277,26 @@ public class ActGoodsDetailsPresenterImpl implements IGoodsDetailsContract.IGood
     @Override
     public void shareWXAPP(int type) {
         LogUtils.i(TAG,"我要进行微信分享");
-        //初始化微信分享api
-        api = WXAPIFactory.createWXAPI(CustomApplcation.getInstance().context, Contracts.WX_APP_ID, false);
-        //将应用APP_ID注册到微信
-        api.registerApp(Contracts.WX_APP_ID);
-        String url = "http://www.taobao.com";//收到分享的好友点击信息会跳转到这个地址去
-        WXWebpageObject localWXWebpageObject = new WXWebpageObject();
-        localWXWebpageObject.webpageUrl = url;
-        WXMediaMessage localWXMediaMessage = new WXMediaMessage(localWXWebpageObject);
-        localWXMediaMessage.title = "X淘宝APP功能测试";//不能太长，否则微信会提示出错。不过博主没验证过具体能输入多长。
-        localWXMediaMessage.description = "分享功能测试";
-        Bitmap bitmap = BitmapFactory.decodeResource(CustomApplcation.getInstance().context.getResources(), R.drawable.bookbag);
-        localWXMediaMessage.thumbData = Util.bmpToByteArray(bitmap, true);
-        SendMessageToWX.Req localReq = new SendMessageToWX.Req();
-        localReq.transaction = System.currentTimeMillis() + "";
-        localReq.message = localWXMediaMessage;
-        localReq.scene = type;
-        api.sendReq(localReq);
+        String text = "[筱淘APP]:\r\n用户:"+CustomApplcation.getInstance().getCurrentUser().getNickName()
+                +" 分享商品 \r\n"+goods.getGoodsName()+"\r\n商品价格为:"+goods.getGoodsPrice();
+        // 初始化一个WXTextObject对象
+        WXTextObject textObj = new WXTextObject();
+        textObj.text = text;
+
+        // 用WXTextObject对象初始化一个WXMediaMessage对象
+        WXMediaMessage msg = new WXMediaMessage();
+        msg.mediaObject = textObj;
+        // 发送文本类型的消息时，title字段不起作用
+        // msg.title = "Will be ignored";
+        msg.description = text;
+
+        // 构造一个Req
+        SendMessageToWX.Req req = new SendMessageToWX.Req();
+        req.transaction = System.currentTimeMillis()+"text"; // transaction字段用于唯一标识一个请求
+        req.message = msg;
+        req.scene = type;
+        // 调用api接口发送数据到微信
+        api.sendReq(req);
     }
 
     class Holder {

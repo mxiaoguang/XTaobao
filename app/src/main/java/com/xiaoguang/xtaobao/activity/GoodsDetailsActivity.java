@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.jude.rollviewpager.RollPagerView;
+import com.tencent.mm.sdk.openapi.SendMessageToWX;
 import com.xiaoguang.xtaobao.R;
 import com.xiaoguang.xtaobao.base.BaseActivity;
 import com.xiaoguang.xtaobao.contract.IGoodsDetailsContract;
@@ -85,7 +86,7 @@ public class GoodsDetailsActivity extends BaseActivity implements IGoodsDetailsC
 
     @Override
     public void jumpLogin() {
-        startActivity(new Intent(this,LoginActivity.class));
+        startActivity(new Intent(this, LoginActivity.class));
     }
 
     @Override
@@ -110,14 +111,16 @@ public class GoodsDetailsActivity extends BaseActivity implements IGoodsDetailsC
                                 , new ActionSheetDialog.OnSheetItemClickListener() {
                                     @Override
                                     public void onClick(int which) {
-                                        presenter.shareWXAPP(0);
+                                        //分享到好友列表
+                                        presenter.shareWXAPP(SendMessageToWX.Req.WXSceneSession);
                                     }
                                 })
                         .addSheetItem("分享到朋友圈", ActionSheetDialog.SheetItemColor.Blue
                                 , new ActionSheetDialog.OnSheetItemClickListener() {
                                     @Override
                                     public void onClick(int which) {
-                                        presenter.shareWXAPP(1);
+                                        //分享到朋友圈
+                                        presenter.shareWXAPP(SendMessageToWX.Req.WXSceneTimeline);
                                     }
                                 }).show();
                 break;
@@ -128,17 +131,17 @@ public class GoodsDetailsActivity extends BaseActivity implements IGoodsDetailsC
             case R.id.act_goods_details_btn_shoucang://收藏按钮被点击时,暂时不使用
                 break;
             case R.id.act_goods_details_btn_jiaru://加入购物车
-                if (isLogin()){
+                if (isLogin()) {
                     presenter.joinShopCar();
-                }else {
+                } else {
                     jumpLogin();
                 }
                 break;
             case R.id.act_goods_details_btn_goumai://购买
-                if (isLogin()){
+                if (isLogin()) {
                     //跳转到下单页面
-                    startActivity(new Intent(this,OrdersActivity.class));
-                }else {
+                    startActivity(new Intent(this, OrdersActivity.class));
+                } else {
                     jumpLogin();
                 }
                 break;
@@ -153,14 +156,17 @@ public class GoodsDetailsActivity extends BaseActivity implements IGoodsDetailsC
     public TextView getmActGoodsDetailsTvGoodsName() {
         return mActGoodsDetailsTvGoodsName;
     }
+
     @Override
     public XListView getmActGoodsDetailsXlv() {
         return mActGoodsDetailsXlv;
     }
+
     @Override
     public TextView getmActGoodsDetailsTvMoney() {
         return mActGoodsDetailsTvMoney;
     }
+
     @Override
     public Button getmActGoodsDetailsBtnShoucang() {
         return mActGoodsDetailsBtnShoucang;
