@@ -6,18 +6,18 @@
 ***
 ###页面截图
 
-![image](https://github.com/mmengchen/XTaobao/raw/master/screenshots/index.png)
-![image](https://github.com/mmengchen/XTaobao/raw/master/screenshots/home.png)
-![image](https://github.com/mmengchen/XTaobao/raw/master/screenshots/goods_type.png)
-![image](https://github.com/mmengchen/XTaobao/raw/master/screenshots/goods.png)
-![image](https://github.com/mmengchen/XTaobao/raw/master/screenshots/goods.details.png)
-![image](https://github.com/mmengchen/XTaobao/raw/master/screenshots/pay.png)
-![image](https://github.com/mmengchen/XTaobao/raw/master/screenshots/orders.png)
-![image](https://github.com/mmengchen/XTaobao/raw/master/screenshots/orders2.png)
-![image](https://github.com/mmengchen/XTaobao/raw/master/screenshots/personal.png)
-![image](https://github.com/mmengchen/XTaobao/raw/master/screenshots/personal_details.png)
-![image](https://github.com/mmengchen/XTaobao/raw/master/screenshots/setting.png)
-![image](https://github.com/mmengchen/XTaobao/raw/master/screenshots/shopCar.png)
+<img src="/screenshots/index.png" alt="screenshot" title="screenshot" width="270" height="486" />
+<img src="/screenshots/home.png" alt="screenshot" title="screenshot" width="270" height="486" />
+<img src="/screenshots/goods_type.png" alt="screenshot" title="screenshot" width="270" height="486" />
+<img src="/screenshots/goods.png" alt="screenshot" title="screenshot" width="270" height="486" />
+<img src="/screenshots/goods_details.png" alt="screenshot" title="screenshot" width="270" height="486" />
+<img src="/screenshots/orders2.png" alt="screenshot" title="screenshot" width="270" height="486" />
+<img src="/screenshots/pay.png" alt="screenshot" title="screenshot" width="270" height="486" />
+<img src="/screenshots/shopCar.png" alt="screenshot" title="screenshot" width="270" height="486" />
+<img src="/screenshots/orders.png" alt="screenshot" title="screenshot" width="270" height="486" />
+<img src="/screenshots/personal.png" alt="screenshot" title="screenshot" width="270" height="486" />
+<img src="/screenshots/personal_details.png" alt="screenshot" title="screenshot" width="270" height="486" />
+<img src="/screenshots/setting.png" alt="screenshot" title="screenshot" width="270" height="486" />
 ###功能测试
 
    
