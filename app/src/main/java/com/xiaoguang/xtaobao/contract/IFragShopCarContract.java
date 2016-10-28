@@ -48,6 +48,8 @@ public class IFragShopCarContract {
        void jumpActivity(String objectId, double sum);
    }
     public interface IFragShopCarPresenter extends BasePresenter<IFragShopCarView>{
+        void queryDatasFromServer();
+
         /**
          * 更改文本呢文字
          * @param count 数量

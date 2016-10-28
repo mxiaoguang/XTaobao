@@ -55,6 +55,9 @@ public interface Contracts {
     //Bmob云APP_Key
     String BMOB_APP_KEY = "4704a65c576098ab3ab4392300f60e11";
 
+    //微信分享key
+    String WX_APP_ID = "wxb9b8271eea5609b0";
+
     //默认头像的地址
     String DEFALT_HEAD_URL = "http://bmob-cdn-6590.b0.upaiyun.com/2016/10/16/22901ee0406f7af280b56a1b5d555f58.png";
 
@@ -90,6 +93,5 @@ public interface Contracts {
     /**
      * 响应的其他情况
      */
-    public class RESULT_UN {
-    }
+    int RESULT_UN = 600;
 }

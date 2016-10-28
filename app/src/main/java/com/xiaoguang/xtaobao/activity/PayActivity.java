@@ -173,7 +173,7 @@ public class PayActivity extends BaseActivity {
 
     // 商品详情(可不填)
     String getName() {
-        return "[筱广Taobao]参加活动:" + mActPayTvGoodsTitle.getText().toString() + " 费用";
+        return "[筱广Taobao]购买商品:" + mActPayTvGoodsTitle.getText().toString() + " 费用";
     }
 
     // 商品详情(可不填)
@@ -240,6 +240,7 @@ public class PayActivity extends BaseActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.act_pay_iv_back:
+                finish();
                 break;
             case R.id.act_goods_result_tv_menu:
                 break;

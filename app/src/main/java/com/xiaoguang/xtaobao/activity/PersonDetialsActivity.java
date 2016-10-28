@@ -99,6 +99,7 @@ public class PersonDetialsActivity extends BaseActivity implements IPersiDetials
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.act_person_details_iv_back:
+                finish();
                 break;
             case R.id.act_setting_tv_menu:
                 break;

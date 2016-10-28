@@ -19,6 +19,7 @@ import com.xiaoguang.xtaobao.widget.XListView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import zhangphil.iosdialog.widget.ActionSheetDialog;
 
 /**
  * Created by 11655 on 2016/10/23.
@@ -101,6 +102,24 @@ public class GoodsDetailsActivity extends BaseActivity implements IGoodsDetailsC
             case R.id.act_goods_details_tv_menu:
                 break;
             case R.id.act_goods_details_btn_share:
+                new ActionSheetDialog(this)
+                        .builder()
+                        .setCancelable(true)
+                        .setCanceledOnTouchOutside(true)
+                        .addSheetItem("分享到好友列表", ActionSheetDialog.SheetItemColor.Red
+                                , new ActionSheetDialog.OnSheetItemClickListener() {
+                                    @Override
+                                    public void onClick(int which) {
+                                        presenter.shareWXAPP(0);
+                                    }
+                                })
+                        .addSheetItem("分享到朋友圈", ActionSheetDialog.SheetItemColor.Blue
+                                , new ActionSheetDialog.OnSheetItemClickListener() {
+                                    @Override
+                                    public void onClick(int which) {
+                                        presenter.shareWXAPP(1);
+                                    }
+                                }).show();
                 break;
             case R.id.act_goods_details_btn_kefu:
                 break;

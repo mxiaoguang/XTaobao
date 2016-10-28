@@ -51,7 +51,8 @@ dependencies {
     compile files('libs/bmobpay.jar')
     compile project(':iOS_Dialog_Library')
     //拍照arr支持
-    compile(name:'kalelibrary', ext:'aar')
+    compile(name: 'kalelibrary', ext: 'aar')
     //侧滑删除
     compile 'com.baoyz.swipemenulistview:library:1.3.0'
+    compile files('libs/weixinsdk.jar')
 }

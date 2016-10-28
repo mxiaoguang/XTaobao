@@ -28,6 +28,7 @@ import java.util.List;
 import cn.bmob.v3.BmobBatch;
 import cn.bmob.v3.BmobObject;
 import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.datatype.BatchResult;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
@@ -78,8 +79,6 @@ public class FragShopCarPresenterImpl implements IFragShopCarContract.IFragShopC
         listShopCas = new ArrayList<>();
         FragShopcarAdapter.setIsSelected(isChecked);
 
-        //查询购物车并显示
-        queryDatasFromServer();
         //添加侧滑按钮
         addItemButton();
         //初始化监听事件
@@ -89,11 +88,12 @@ public class FragShopCarPresenterImpl implements IFragShopCarContract.IFragShopC
     /**
      * 从网络上查询购物车的信息，
      */
-    private void queryDatasFromServer() {
+    @Override
+    public void queryDatasFromServer() {
         view.showLoadingDialog("", "数据加载中...", false);
         BmobQuery<ShopCar> query = new BmobQuery<>();
         //根据当前用户查询购物车信息
-        query.addWhereEqualTo("userId", CustomApplcation.getInstance().getCurrentUser().getObjectId());
+        query.addWhereEqualTo("userId", BmobUser.getCurrentUser().getObjectId());
         query.findObjects(new FindListener<ShopCar>() {
             @Override
             public void done(List<ShopCar> list, BmobException e) {

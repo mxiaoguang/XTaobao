@@ -16,6 +16,7 @@ import com.xiaoguang.xtaobao.widget.NotSlipViewPager;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.bmob.v3.update.BmobUpdateAgent;
 
 public class HomeActivity extends BaseActivity implements IHomeContract.IHomeView {
 
@@ -54,6 +55,8 @@ public class HomeActivity extends BaseActivity implements IHomeContract.IHomeVie
         btns  = new Button[]{mActHomeBtnHome,mActHomeBtnWe,mActHomeBtnShopcar,mActHomeBtnMy};
         //默认第一个按钮被选中
         mActHomeBtnHome.setEnabled(false);
+        //进行版本判断操作
+        BmobUpdateAgent.update(this);
         //进行数据的初始化操作
         presenter.initData();
     }

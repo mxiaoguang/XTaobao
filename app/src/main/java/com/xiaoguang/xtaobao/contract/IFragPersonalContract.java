@@ -44,7 +44,7 @@ public class IFragPersonalContract {
     public interface IFragPersonalPresenter extends BasePresenter<IFragPersonalView>{
 
         /**
-         * @param type -1为查询全部订单 0 待付款 1 待发货 2 待收货 3 待评价 4查询退款
+         * @param type -1为查询全部订单 0 待付款 1 已付款,待发货 2 已发货，待收货 3已收货, 待评价 4退款 5.取消的订单
          */
         void queryOrders(int type);
     }

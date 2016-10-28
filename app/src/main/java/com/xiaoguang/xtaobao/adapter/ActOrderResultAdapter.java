@@ -1,5 +1,6 @@
 package com.xiaoguang.xtaobao.adapter;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,6 +35,10 @@ public class ActOrderResultAdapter extends BaseAdapter {
     private List<Orders> ordersList;
     private Context context;
     IOrdersResultContract.IOrdersResultPresenter presenter;
+    private AlertDialog.Builder builder;
+    private AlertDialog alertDialog;
+    //订单中的商品
+    private Goods goods;
 
     public ActOrderResultAdapter(Context context, List<Orders> ordersList, IOrdersResultContract.IOrdersResultPresenter presenter) {
         inflater = LayoutInflater.from(context);
@@ -89,24 +94,48 @@ public class ActOrderResultAdapter extends BaseAdapter {
                 //显示付款和取消订单按钮
                 viewHolder.mBtnPay.setVisibility(View.VISIBLE);
                 viewHolder.mBtnCanel.setVisibility(View.VISIBLE);
+                //隐藏其他按钮
+                viewHolder.mBtnShouhuo.setVisibility(View.GONE);
+                viewHolder.mBtnPingjia.setVisibility(View.GONE);
                 break;
             case 1:
                 viewHolder.mTvOrdersState.setText("等待卖家发货");
+                //隐藏其他按钮
+                viewHolder.mBtnPay.setVisibility(View.GONE);
+                viewHolder.mBtnCanel.setVisibility(View.GONE);
+                viewHolder.mBtnShouhuo.setVisibility(View.GONE);
+                viewHolder.mBtnPingjia.setVisibility(View.GONE);
                 break;
             case 2:
                 viewHolder.mTvOrdersState.setText("等待买家收货");
+                viewHolder.mBtnPay.setVisibility(View.GONE);
+                viewHolder.mBtnCanel.setVisibility(View.GONE);
                 viewHolder.mBtnShouhuo.setVisibility(View.VISIBLE);
+                viewHolder.mBtnPingjia.setVisibility(View.GONE);
                 break;
             case 3:
                 viewHolder.mTvOrdersState.setText("等待买家评价");
+                viewHolder.mBtnPay.setVisibility(View.GONE);
+                viewHolder.mBtnCanel.setVisibility(View.GONE);
+                viewHolder.mBtnShouhuo.setVisibility(View.GONE);
                 viewHolder.mBtnPingjia.setVisibility(View.VISIBLE);
                 break;
             case 4:
                 viewHolder.mTvOrdersState.setText("退款中");
+                viewHolder.mBtnPay.setVisibility(View.GONE);
+                viewHolder.mBtnCanel.setVisibility(View.GONE);
+                viewHolder.mBtnShouhuo.setVisibility(View.GONE);
+                viewHolder.mBtnPingjia.setVisibility(View.GONE);
                 break;
+            case 5:
+                viewHolder.mTvOrdersState.setText("取消的订单");
+                viewHolder.mBtnPay.setVisibility(View.GONE);
+                viewHolder.mBtnCanel.setVisibility(View.GONE);
+                viewHolder.mBtnShouhuo.setVisibility(View.GONE);
+                viewHolder.mBtnPingjia.setVisibility(View.GONE);
         }
         //为按钮添加点击事件
-        initEvent(viewHolder);
+        initEvent(viewHolder,position);
         return convertView;
     }
 
@@ -115,7 +144,36 @@ public class ActOrderResultAdapter extends BaseAdapter {
      *
      * @param viewHolder
      */
-    private void initEvent(ViewHolder viewHolder) {
+    private void initEvent(ViewHolder viewHolder, final int position) {
+        viewHolder.mBtnCanel.setOnClickListener(new View.OnClickListener() {//取消按钮的点击事件
+            @Override
+            public void onClick(View v) {
+                //取消订单
+                presenter.updateOrders(5,ordersList.get(position).getObjectId());
+            }
+        });
+        viewHolder.mBtnPay.setOnClickListener(new View.OnClickListener() {//付款按钮的点击事件
+            @Override
+            public void onClick(View v) {
+                //支付订单
+                presenter.pay(ordersList.get(position).getObjectId(),ordersList.get(position).getOerdersMoney());
+            }
+        });
+        viewHolder.mBtnShouhuo.setOnClickListener(new View.OnClickListener() {//收货按钮的点击事件
+            @Override
+            public void onClick(View v) {
+                //确认订单
+                presenter.updateOrders(2,ordersList.get(position).getObjectId());
+            }
+        });
+
+        //为评价按钮设置点击事件
+        viewHolder.mBtnPingjia.setOnClickListener(new View.OnClickListener() {//评论按钮的点击事件
+            @Override
+            public void onClick(View v) {
+                presenter.pingJia(ordersList.get(position).getGoodIds().get(0));
+            }
+        });
     }
 
     /**
@@ -130,6 +188,7 @@ public class ActOrderResultAdapter extends BaseAdapter {
             public void done(final Goods goods, BmobException e) {
                 if (e == null) {
                     //显示图片
+                    ActOrderResultAdapter.this.goods = goods;
                     Picasso.with(context).load(goods.getGoodsImgs().get(0).getUrl()).into(holder.mIvGoodsImg);
                     //设置价格
                     holder.mTvPrice.setText("¥ " + goods.getGoodsPrice());

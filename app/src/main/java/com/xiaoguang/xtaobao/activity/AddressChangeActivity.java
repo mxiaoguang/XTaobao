@@ -80,6 +80,7 @@ public class AddressChangeActivity extends BaseActivity implements IAddressContr
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.act_address_iv_back:
+                finish();
                 break;
             case R.id.act_address_tv_add:
                 showMyDialog(1,"新增收货地址");

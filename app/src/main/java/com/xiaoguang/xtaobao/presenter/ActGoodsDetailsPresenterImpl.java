@@ -1,10 +1,18 @@
 package com.xiaoguang.xtaobao.presenter;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.jude.rollviewpager.RollPagerView;
+import com.tencent.mm.sdk.openapi.IWXAPI;
+import com.tencent.mm.sdk.openapi.SendMessageToWX;
+import com.tencent.mm.sdk.openapi.WXAPIFactory;
+import com.tencent.mm.sdk.openapi.WXMediaMessage;
+import com.tencent.mm.sdk.openapi.WXWebpageObject;
+import com.tencent.mm.sdk.platformtools.Util;
 import com.xiaoguang.xtaobao.R;
 import com.xiaoguang.xtaobao.adapter.DiscussXlvAdapter;
 import com.xiaoguang.xtaobao.adapter.GoodsRollPagerViewAdapter;
@@ -13,6 +21,7 @@ import com.xiaoguang.xtaobao.bean.Discuss;
 import com.xiaoguang.xtaobao.bean.Goods;
 import com.xiaoguang.xtaobao.bean.ShopCar;
 import com.xiaoguang.xtaobao.bean.User;
+import com.xiaoguang.xtaobao.config.Contracts;
 import com.xiaoguang.xtaobao.contract.IGoodsDetailsContract;
 import com.xiaoguang.xtaobao.util.LogUtils;
 import com.xiaoguang.xtaobao.widget.XListView;
@@ -42,6 +51,7 @@ public class ActGoodsDetailsPresenterImpl implements IGoodsDetailsContract.IGood
     private IGoodsDetailsContract.IGoodsDetailsView view;
     //商品
     private Goods goods;
+    private IWXAPI api;
 
     public ActGoodsDetailsPresenterImpl(IGoodsDetailsContract.IGoodsDetailsView view) {
         this.view = view;
@@ -59,11 +69,12 @@ public class ActGoodsDetailsPresenterImpl implements IGoodsDetailsContract.IGood
 
         //获取数据
         Goods goods = (Goods) CustomApplcation.getDatas("goods", false);
-        //设置数据
+        /*设置数据*/
         mRollVpAd.setAdapter(new GoodsRollPagerViewAdapter(goods.getGoodsImgs()));
         mTvGoodsName.setText(goods.getGoodsName());
         mTvGoodsMoney.setText("¥ " + goods.getGoodsPrice());
-        //评论
+
+        /*评论功能*/
         //查询根据获取商品的id查询所有评论,并显示
         queryDiscuss(goods.getObjectId());
         //收藏与取消收藏
@@ -145,37 +156,37 @@ public class ActGoodsDetailsPresenterImpl implements IGoodsDetailsContract.IGood
                         //更新服务器数据
                         newGoods.update(goods.getObjectId(),
                                 new UpdateListener() {
-                            @Override
-                            public void done(BmobException e) {
-                                if (e == null) {
-                                    LogUtils.i(TAG, "当前商品中移除用户成功");
-                                    //将user表移除
-                                    User user = new User();
-                                    ArrayList<String> goodIds = new ArrayList<String>();
-                                    goodIds.add(goods.getObjectId());
-                                    user.removeAll("loveGoodsIds", goodIds);
-                                    user.update(CustomApplcation.getInstance().getCurrentUser().getObjectId(),
-                                            new UpdateListener() {
-                                                @Override
-                                                public void done(BmobException e) {
-                                                    if (e == null) {
-                                                        LogUtils.i(TAG, "当前用户移除当前活动成功");
-                                                        view.showMsg("取消收藏成功");
-                                                        //显示灰心效果
-                                                        mBtnShoucang.setCompoundDrawablesWithIntrinsicBounds(0,
-                                                                R.drawable.act_goods_details_shoucang, 0, 0);
-                                                    } else {
-                                                        LogUtils.i(TAG, "当前用户移除当前商品失败" + e.toString());
-                                                        view.showMsg("取消收藏失败");
-                                                    }
-                                                }
-                                            });
-                                } else {
-                                    LogUtils.i(TAG, "当前商品中移除用户成功" + e.toString());
-                                    view.showMsg("取消点赞失败，原因是" + e.getLocalizedMessage());
-                                }
-                            }
-                        });
+                                    @Override
+                                    public void done(BmobException e) {
+                                        if (e == null) {
+                                            LogUtils.i(TAG, "当前商品中移除用户成功");
+                                            //将user表移除
+                                            User user = new User();
+                                            ArrayList<String> goodIds = new ArrayList<String>();
+                                            goodIds.add(goods.getObjectId());
+                                            user.removeAll("loveGoodsIds", goodIds);
+                                            user.update(CustomApplcation.getInstance().getCurrentUser().getObjectId(),
+                                                    new UpdateListener() {
+                                                        @Override
+                                                        public void done(BmobException e) {
+                                                            if (e == null) {
+                                                                LogUtils.i(TAG, "当前用户移除当前活动成功");
+                                                                view.showMsg("取消收藏成功");
+                                                                //显示灰心效果
+                                                                mBtnShoucang.setCompoundDrawablesWithIntrinsicBounds(0,
+                                                                        R.drawable.act_goods_details_shoucang, 0, 0);
+                                                            } else {
+                                                                LogUtils.i(TAG, "当前用户移除当前商品失败" + e.toString());
+                                                                view.showMsg("取消收藏失败");
+                                                            }
+                                                        }
+                                                    });
+                                        } else {
+                                            LogUtils.i(TAG, "当前商品中移除用户成功" + e.toString());
+                                            view.showMsg("取消点赞失败，原因是" + e.getLocalizedMessage());
+                                        }
+                                    }
+                                });
                     } else {//点赞
                         LogUtils.i(TAG, "我正在进行点赞操作 ");
                         //将当前用户Id保存
@@ -234,9 +245,9 @@ public class ActGoodsDetailsPresenterImpl implements IGoodsDetailsContract.IGood
 
     @Override
     public void joinShopCar() {
-        view.showLoadingDialog("","数据加载中...",false);
+        view.showLoadingDialog("", "数据加载中...", false);
         //获取传递过来的商品信息
-        goods = (Goods) CustomApplcation.getDatas("goods",false);
+        goods = (Goods) CustomApplcation.getDatas("goods", false);
         //将商品信息添加到购物车
         ShopCar shopCar = new ShopCar();
         shopCar.setGoodId(goods.getObjectId());
@@ -247,15 +258,37 @@ public class ActGoodsDetailsPresenterImpl implements IGoodsDetailsContract.IGood
             @Override
             public void done(String objectId, BmobException e) {
                 view.canelLoadingDialog();
-                if (e == null){
+                if (e == null) {
                     view.showMsg("加入购物车成功!");
-                    LogUtils.i(TAG,"加入购车功能!购物车编号为:"+objectId);
-                }else {
-                    view.showMsg("加入购物车失败!"+e.getLocalizedMessage());
-                    LogUtils.i(TAG,"加入购物车失败"+e.toString());
+                    LogUtils.i(TAG, "加入购车功能!购物车编号为:" + objectId);
+                } else {
+                    view.showMsg("加入购物车失败!" + e.getLocalizedMessage());
+                    LogUtils.i(TAG, "加入购物车失败" + e.toString());
                 }
             }
         });
+    }
+
+    @Override
+    public void shareWXAPP(int type) {
+        LogUtils.i(TAG,"我要进行微信分享");
+        //初始化微信分享api
+        api = WXAPIFactory.createWXAPI(CustomApplcation.getInstance().context, Contracts.WX_APP_ID, false);
+        //将应用APP_ID注册到微信
+        api.registerApp(Contracts.WX_APP_ID);
+        String url = "http://www.taobao.com";//收到分享的好友点击信息会跳转到这个地址去
+        WXWebpageObject localWXWebpageObject = new WXWebpageObject();
+        localWXWebpageObject.webpageUrl = url;
+        WXMediaMessage localWXMediaMessage = new WXMediaMessage(localWXWebpageObject);
+        localWXMediaMessage.title = "X淘宝APP功能测试";//不能太长，否则微信会提示出错。不过博主没验证过具体能输入多长。
+        localWXMediaMessage.description = "分享功能测试";
+        Bitmap bitmap = BitmapFactory.decodeResource(CustomApplcation.getInstance().context.getResources(), R.drawable.bookbag);
+        localWXMediaMessage.thumbData = Util.bmpToByteArray(bitmap, true);
+        SendMessageToWX.Req localReq = new SendMessageToWX.Req();
+        localReq.transaction = System.currentTimeMillis() + "";
+        localReq.message = localWXMediaMessage;
+        localReq.scene = type;
+        api.sendReq(localReq);
     }
 
     class Holder {

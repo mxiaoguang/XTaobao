@@ -63,6 +63,7 @@ public class LoginActivity extends BaseActivity implements ILoginContract.ILogin
                 presenter.login();
                 break;
             case R.id.act_login_tv_forget://跳转到忘记密码页面
+                startActivity(new Intent(this,ForgetPwdActivity.class));
                 break;
             case R.id.act_login_tv_reg://跳转到注册页面
                 startActivity(new Intent(this,RegisterActivity.class));

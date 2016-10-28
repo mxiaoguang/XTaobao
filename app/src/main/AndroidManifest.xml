@@ -43,6 +43,12 @@
         <activity android:name=".activity.PayActivity"/>
         <activity android:name=".activity.OrdersResultActivity"/>
         <activity android:name=".activity.LoveGoodsActivity"/>
+        <!--Bmob自动更新-->
+        <activity
+            android:name="cn.bmob.v3.update.UpdateDialogActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
+        <activity android:name=".activity.ForgetPwdActivity" />
     </application>
 
 </manifest>

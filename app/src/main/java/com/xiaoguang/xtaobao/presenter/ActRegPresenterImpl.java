@@ -88,7 +88,7 @@ public class ActRegPresenterImpl implements IRegisterContract.IIRegisterPrensent
         } else if (strCode.isEmpty()) {
             view.showMsg("请输入验证码!");
         } else if (strNickname.isEmpty()) {
-            view.showMsg("请输入验证码!");
+            view.showMsg("请输入昵称!");
         } else if (pwd1.isEmpty()) {
             view.showMsg("请输入密码!");
         } else if (pwd2.isEmpty()) {

@@ -19,6 +19,7 @@ import com.xiaoguang.xtaobao.activity.PayActivity;
 import com.xiaoguang.xtaobao.base.BaseFragment;
 import com.xiaoguang.xtaobao.contract.IFragShopCarContract;
 import com.xiaoguang.xtaobao.presenter.FragShopCarPresenterImpl;
+import com.xiaoguang.xtaobao.util.LogUtils;
 import com.xiaoguang.xtaobao.util.ToastFactory;
 
 import butterknife.BindView;
@@ -60,8 +61,10 @@ public class ShopcarFragment extends BaseFragment implements IFragShopCarContrac
         if (!isPrepared || !isVisible) {
             return;
         }
-        if (!isLogin()) {
+        if (!isLogin()) {//判断是否登陆
             startActivityForResult(new Intent(getContext(), LoginActivity.class), 600);
+        }else{//已经登陆,查询并加载数据
+            presenter.queryDatasFromServer();
         }
     }
 
@@ -85,6 +88,7 @@ public class ShopcarFragment extends BaseFragment implements IFragShopCarContrac
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 600 & requestCode == 200) {
             //执行登陆后的返回操作
+            LogUtils.i("myTag","我被调用了呢");
         }
 
     }
