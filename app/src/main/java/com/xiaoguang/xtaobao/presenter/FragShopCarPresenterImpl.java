@@ -271,6 +271,8 @@ public class FragShopCarPresenterImpl implements IFragShopCarContract.IFragShopC
             @Override
             public boolean onMenuItemClick(int position, SwipeMenu menu, int index) {
                 //获取选中的购物车中的id
+                //
+                LogUtils.i(TAG,"我的购物车中的"+listShopCas.size());
                 String itemObjectId = listShopCas.get(position).getObjectId();
                 LogUtils.i("myTag", "我选中" + position);
                 switch (index) {

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--刮奖的显示页面-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <!--头部开始-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/act_lotteries_tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="5dp"
+            android:text="购买成功"
+            android:textSize="20dp" />
+        <TextView
+            android:id="@+id/act_lotteries_tv_finish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="5dp"
+            android:text="完成" />
+    </RelativeLayout>
+    <!--头部结束-->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorLine"/>
+    <!--内容区域-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:text="恭喜你获得一抽奖的机会"
+        android:textColor="@color/colorSelectedIcon"
+        android:textSize="18sp"/>
+    <!--刮奖图层区域-->
+    <RelativeLayout
+        android:id="@+id/container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
+        >
+    </RelativeLayout>
+    <Button
+        android:id="@+id/act_lotteries_btn_lingqu"
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="#ffffff"
+        android:background="@drawable/seletor_frag_login_btn_login"
+        android:text="立即领取"/>
+</LinearLayout>

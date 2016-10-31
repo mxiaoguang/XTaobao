@@ -121,6 +121,8 @@ public class PayActivity extends BaseActivity {
                         if(e==null){
                             Log.i("bmob","更新成功");
                             ToastFactory.getToast(PayActivity.this,"支付成功").show();
+                            //跳转到购买成功抽奖页面
+                            startActivity(new Intent(PayActivity.this,LotteriesActivity.class));
                         }else{
                             Log.i("bmob","更新失败："+e.getMessage()+","+e.getErrorCode());
                             ToastFactory.getToast(PayActivity.this,"支付成功").show();

@@ -60,7 +60,7 @@ public class WebViewActivity extends BaseActivity {
     private void initData() {
         //获取传递过来的数据
         Intent intent = getIntent();
-    url = intent.getStringExtra("URL");
+        url = intent.getStringExtra("URL");
         //使用系统内置的浏览器打开网页
         mActWebviewWv.loadUrl(url);
         //支持js

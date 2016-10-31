@@ -43,12 +43,19 @@
         <activity android:name=".activity.PayActivity"/>
         <activity android:name=".activity.OrdersResultActivity"/>
         <activity android:name=".activity.LoveGoodsActivity"/>
+        <activity android:name=".activity.ForgetPwdActivity" />
+        <activity android:name=".activity.LotteriesActivity">
+        <!--    <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
+        </activity>
         <!--Bmob自动更新-->
         <activity
             android:name="cn.bmob.v3.update.UpdateDialogActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" >
         </activity>
-        <activity android:name=".activity.ForgetPwdActivity" />
     </application>
 
 </manifest>

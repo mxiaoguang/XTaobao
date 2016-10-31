@@ -50,7 +50,7 @@ public class ShopcarFragment extends BaseFragment implements IFragShopCarContrac
      * 标志位，标志已经初始化完成
      */
 
-    private boolean isPrepared;
+    private boolean isPrepared = false;
     /**
      * 是否已被加载过一次，第二次就不再去请求数据了
      */
@@ -63,23 +63,23 @@ public class ShopcarFragment extends BaseFragment implements IFragShopCarContrac
         }
         if (!isLogin()) {//判断是否登陆
             startActivityForResult(new Intent(getContext(), LoginActivity.class), 600);
-        }else if(isPrepared ){//已经登陆,查询并加载数据
+        } else {//已经登陆,查询并加载数据
             presenter.queryDatasFromServer();
         }
     }
 
     @Override
     public View initLayout(LayoutInflater inflater, ViewGroup container, boolean b) {
+        View rootView = inflater.inflate(R.layout.frag_shopcar, null);
+        ButterKnife.bind(this, rootView);
+        new FragShopCarPresenterImpl(this);
         isPrepared = true;
         lazyLoad();
-        View rootView =  inflater.inflate(R.layout.frag_shopcar, null);
-        ButterKnife.bind(this, rootView);
         return rootView;
     }
 
     @Override
     protected void initData(@Nullable Bundle savedInstanceState) {
-        new FragShopCarPresenterImpl(this);
         presenter.initData();
     }
 
@@ -88,7 +88,7 @@ public class ShopcarFragment extends BaseFragment implements IFragShopCarContrac
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 600 & requestCode == 200) {
             //执行登陆后的返回操作
-            LogUtils.i("myTag","我被调用了呢");
+            LogUtils.i("myTag", "我被调用了呢");
         }
 
     }
@@ -98,7 +98,7 @@ public class ShopcarFragment extends BaseFragment implements IFragShopCarContrac
         this.presenter = presenter;
     }
 
-    @OnClick({R.id.frag_shop_car_msg,R.id.frag_shop_car_btn_submit})
+    @OnClick({R.id.frag_shop_car_msg, R.id.frag_shop_car_btn_submit})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.frag_shop_car_msg:
@@ -109,14 +109,17 @@ public class ShopcarFragment extends BaseFragment implements IFragShopCarContrac
                 break;
         }
     }
+
     @Override
     public SwipeMenuListView getmFragShopcarLv() {
         return mFragShopcarLv;
     }
+
     @Override
     public CheckBox getmFragShopCarCb() {
         return mFragShopCarCb;
     }
+
     @Override
     public TextView getmFragShopCarTvMoney() {
         return mFragShopCarTvMoney;
@@ -124,7 +127,7 @@ public class ShopcarFragment extends BaseFragment implements IFragShopCarContrac
 
     @Override
     public void showMsg(String msg) {
-        ToastFactory.getToast(getContext(),msg).show();
+        ToastFactory.getToast(getContext(), msg).show();
     }
 
     @Override
@@ -142,9 +145,8 @@ public class ShopcarFragment extends BaseFragment implements IFragShopCarContrac
         //跳转到支付
         Intent intent = new Intent(getContext(), PayActivity.class);
         //将订单编号和订单金额出传递到下一个activity
-        intent.putExtra("orderId",orderId);
-        intent.putExtra("sumMoney",sumMoney);
+        intent.putExtra("orderId", orderId);
+        intent.putExtra("sumMoney", sumMoney);
         startActivity(intent);
     }
-
 }
